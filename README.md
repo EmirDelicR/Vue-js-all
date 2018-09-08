@@ -70,7 +70,7 @@
 
 [Nightwatch](https://www.youtube.com/watch?v=PFU1G2J6LBU)
 
-[Nigthwatch setup][https://vuejs-templates.github.io/webpack/e2e.html]
+[Nigthwatch setup](https://vuejs-templates.github.io/webpack/e2e.html)
 
 [Official TestCafe](http://devexpress.github.io/testcafe/documentation/getting-started/#creating-a-test)
 
