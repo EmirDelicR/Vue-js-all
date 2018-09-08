@@ -124,7 +124,7 @@ method: {
     }
 }
 ```
-###directive  
+### directive  
 v-once - render only one time <br/>
 v-html - render html <br/>
 v-on:click - [different event like: mouse leave, input] <br/>
