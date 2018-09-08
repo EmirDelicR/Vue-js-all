@@ -1,12 +1,12 @@
 # Vue-js-all
 
-##content
+## content
 
 [Resource](#resource)
 [Intro](#intro)
 [Third](#b)
 
-##resource
+## resource
 
 ##### Documentation
 
@@ -89,7 +89,7 @@
 
 [Top](#content)
 
-##intro
+## intro
 
 [Guide](https://vuejs.org/v2/guide/)
 
@@ -125,14 +125,15 @@ method: {
 }
 ```
 ###directive  
-v-once - render only one time
-v-html - render html
-v-on:click - [different event like: mouse leave, input]
-v-model="property" - two way binding
+v-once - render only one time <br/>
+v-html - render html <br/>
+v-on:click - [different event like: mouse leave, input] <br/>
+v-model="property" - two way binding <br/>
 
 
 [Top](#content)
-##b
+
+## b
 
 
 [Top](#content)
