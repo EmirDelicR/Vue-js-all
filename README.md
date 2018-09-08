@@ -2,9 +2,9 @@
 
 ## content
 
-[Resource](#resource)
-[Intro](#intro)
-[Third](#b)
+[Resource](#resource) <br/>
+[Intro](#intro)<br>
+[Third](#b)<br>
 
 ## resource
 
@@ -19,11 +19,11 @@
 
 ##### Framework
 
-[vuebulma framework](https://admin.vuebulma.com/?ref=madewithvuejs.com#/form)
+[vuebulma](https://admin.vuebulma.com/?ref=madewithvuejs.com#/form)
 
-[element framework](http://element.eleme.io/?ref=madewithvuejs.com#/en-US/)
+[element](http://element.eleme.io/?ref=madewithvuejs.com#/en-US/)
 
-[iviewui framework](https://www.iviewui.com/docs/guide/install-en)
+[iviewui](https://www.iviewui.com/docs/guide/install-en)
 
 ##### Animation
 
@@ -36,7 +36,7 @@
 
 [Git repo](https://github.com/vuejs/awesome-vue#tutorials)
 
-[vue school](https://vueschool.io/articles/)
+[Vue school](https://vueschool.io/articles/)
 
 ##### Vue.js Best practice
 
