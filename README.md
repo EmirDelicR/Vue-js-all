@@ -129,7 +129,21 @@ v-once - render only one time <br/>
 v-html - render html <br/>
 v-on:click - [different event like: mouse leave, input] <br/>
 v-model="property" - two way binding <br/>
+v-if="data-property" - condition attach detach element from DOM <br/>
+v-else-if="data-property" <br/>
+v-else <br/>
+v-show - hide a element <br/>
+v-for="element in data-property [array] elements" - loop <br/>
+```html
+<ul>
+    <li v-for="(elem, index) in elements" :key="elem">{{elem}} {{index}}</li>
+</ul>
+<template v-for="(elem, index) in elements">
+    <h2>elem</h2>
+    <p>index</p>
+</template>
 
+```
 
 [Top](#content)
 
