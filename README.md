@@ -4,11 +4,11 @@
 
 [Resource](#resource) <br/>
 [Intro](#intro)<br>
-[Third](#b)<br>
+[Vue Life Cycle](#lifecycle)<br>
 
 ## resource
 
-##### Documentation
+#### Documentation
 
 [Official documentation](https://vuejs.org/v2/guide/installation.html)
 
@@ -16,8 +16,7 @@
 
 [open source projects](https://medium.mybridge.co/30-amazing-vue-js-open-source-projects-for-the-past-year-v-2018-d39a0d019bb7)
 
-
-##### Framework
+#### Framework
 
 [vuebulma](https://admin.vuebulma.com/?ref=madewithvuejs.com#/form)
 
@@ -25,20 +24,19 @@
 
 [iviewui](https://www.iviewui.com/docs/guide/install-en)
 
-##### Animation
+#### Animation
 
 [splash screen](https://blog.geekyants.com/vue-login-animation-8adbb88c4047)
 
 [examples](https://vuejsexamples.com/)
 
-
-##### Tutorial
+#### Tutorial
 
 [Git repo](https://github.com/vuejs/awesome-vue#tutorials)
 
 [Vue school](https://vueschool.io/articles/)
 
-##### Vue.js Best practice
+#### Vue.js Best practice
 
 [Style Guide](https://gist.github.com/brianboyko/91fdfb492071e743e389d84eee002342)
 
@@ -52,21 +50,21 @@
 
 [Vue Patterns](https://learn-vuejs.github.io/vue-patterns/patterns/#component-declaration)
 
-
-##### Info
+#### Info
 
 [Full stack radio](http://www.fullstackradio.com/81)
 
-##### Books
+#### Books
+
 [Design Patterns](https://www.safaribooksonline.com/library/view/vuejs-2-design/9781788839792/)
 
 [Vuejs 2 Design Patterns](https://vk.com/topic-161183987_39079441)
 
-##### Tools
+#### Tools
+
 [Design Systems with Vue.js](https://vueds.com/)
 
-
-##### E2E testing
+#### E2E testing
 
 [Nightwatch](https://www.youtube.com/watch?v=PFU1G2J6LBU)
 
@@ -86,7 +84,6 @@
 
 [Git repo with tests](https://github.com/Matterwiki/Matterwiki/tree/master/tests/e2e)
 
-
 [Top](#content)
 
 ## intro
@@ -94,15 +91,15 @@
 [Guide](https://vuejs.org/v2/guide/)
 
 ```javascript
-el: "Connect to DOM"
-data: "Store Data to be used"
-methods: "Methods of this Vue Instance"
-computed: "Dependent Properties"
-watch: "Execute code upon data change"
+el: "Connect to DOM";
+data: "Store Data to be used";
+methods: "Methods of this Vue Instance";
+computed: "Dependent Properties";
+watch: "Execute code upon data change";
 ```
 
 ```html
-{{ Always string }} - string Interpolation 
+{{ Always string }} - string Interpolation
 
 <!-- Bind -->
 <a v-bind:href="link">{{ title }}</a>
@@ -113,6 +110,7 @@ watch: "Execute code upon data change"
 <!-- can be written like this: -->
 <button @click="functionName">{{ title }}</button>
 ```
+
 ```javascript
 data: {
     title: "Some link",
@@ -124,7 +122,9 @@ method: {
     }
 }
 ```
-### directive  
+
+### directive
+
 v-once - render only one time <br/>
 v-html - render html <br/>
 v-on:click - [different event like: mouse leave, input] <br/>
@@ -134,6 +134,7 @@ v-else-if="data-property" <br/>
 v-else <br/>
 v-show - hide a element <br/>
 v-for="element in data-property [array] elements" - loop <br/>
+
 ```html
 <ul>
     <li v-for="(elem, index) in elements" :key="elem">{{elem}} {{index}}</li>
@@ -142,12 +143,35 @@ v-for="element in data-property [array] elements" - loop <br/>
     <h2>elem</h2>
     <p>index</p>
 </template>
-
 ```
 
 [Top](#content)
 
-## b
+## lifecycle
 
+[The Vue Instance](http://vuejs.org/guide/instance.html)
+
+![Life Cycle](Images-doc/image.png)
+
+```javascript
+new Vue({
+  el: "#app",
+  data: {},
+  beforeCreate: function() {},
+  created: function() {},
+  beforeMount: function() {},
+  mounted: function() {},
+  beforeUpdate: function() {},
+  updated: function() {},
+  beforeDestroy: function() {},
+  destroyed: function() {},
+  methods: {
+    destroy: function() {
+      // This destroy instance
+      this.$destroy();
+    }
+  }
+});
+```
 
 [Top](#content)
