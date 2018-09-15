@@ -317,4 +317,41 @@ new Vue({
 
 ## components
 
+Simple component
+
+```javascript
+// This register global component
+Vue.component("tag-name like my-cmp", {
+  data: function() {
+    return {
+      status: "Critical"
+    };
+  },
+  template:
+    '<p>Server Status: {{ status }} <button @click="changeStatus">Change</button></p>',
+  methods: {
+    changeStatus: function() {
+      this.status = "Normal";
+    }
+  }
+});
+```
+
+```html
+<my-cmp></my-cmp>
+```
+
+```javascript
+// local component
+let com = {
+    data: ...
+}
+new Vue({
+    el: '#app',
+    components: {
+        'my-com': cmp
+    }
+});
+```
+
 [Top](#content)
