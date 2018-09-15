@@ -7,6 +7,7 @@
 [Vue Life Cycle](#lifecycle)<br>
 [Vue CLI](#cli)<br/>
 [Vue Components](#components)<br/>
+[Advance Component Usage](#componentUsage)<br/>
 
 ## resource
 
@@ -523,6 +524,93 @@ created () {
       this.userAge = age;
   });
 }
+```
+
+[Top](#content)
+
+## componentUsage
+
+[Slots:](http://vuejs.org/guide/components.html#Content-Distribution-with-Slots)
+
+[Dynamic Components:](http://vuejs.org/guide/components.html#Dynamic-Components)
+
+[Misc:](http://vuejs.org/guide/components.html#Misc)
+
+#### Slots
+
+```html
+<!-- in child component -->
+<slot></slot>
+<!-- in parent component -->
+<app-quote>
+  <h2>{{ quoteTitle }}</h2>
+  <p>A wonderful quote!</p>
+</app-quote>
+```
+
+```javascript
+// parent
+data: function () {
+  return {
+    quoteTitle: 'The Quote'
+  }
+},
+```
+
+Multiple slots
+
+```html
+<!-- in child component -->
+<div>
+  <div>
+    <slot name="title"></slot>
+  </div>
+  <div>
+    <slot name="content"></slot>
+  </div>
+</div>
+<!-- in parent component -->
+<app-quote>
+  <h2 slot="title">{{ quoteTitle }}</h2>
+  <p slot="content">A wonderful quote!</p>
+</app-quote>
+```
+
+##### dynamic components
+
+```html
+<button @click="sleectedComponent = 'appQuote'">Quote</button>
+<button @click="sleectedComponent = 'appAuthor'">Author</button>
+<button @click="sleectedComponent = 'appNew'">New</button>
+<component :is="sleectedComponent">
+  <h2 slot="title">{{ quoteTitle }}</h2>
+  <p slot="content">A wonderful quote!</p>
+</component>
+```
+
+```javascript
+data: function () {
+  return {
+    quoteTitle: 'The Quote',
+    sleectedComponent: 'appQuote'
+  }
+},
+components: {
+  appQuote: Quote,
+  appAuthor: Author,
+  appNew: New
+}
+```
+
+To not destroy component:
+
+```html
+<keep-alive>
+  <component :is="sleectedComponent">
+    <h2 slot="title">{{ quoteTitle }}</h2>
+    <p slot="content">A wonderful quote!</p>
+  </component>
+</keep-alive>
 ```
 
 [Top](#content)
