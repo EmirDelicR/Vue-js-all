@@ -321,6 +321,12 @@ new Vue({
 
 [Component registration](https://vuejs.org/v2/guide/components-registration.html)
 
+[Props:](http://vuejs.org/guide/components.html#Props)
+
+[Custom Events:](http://vuejs.org/guide/components.html#Custom-Events)
+
+[Non-Parent-Child Communication:](http://vuejs.org/guide/components.html#Non-Parent-Child-Communication)
+
 Simple component
 
 ```javascript
@@ -356,6 +362,167 @@ new Vue({
         'my-com': cmp
     }
 });
+```
+
+#### Communication
+
+From parent to child
+
+```html
+<!-- parent -->
+<button @click="changeName">Change my Name</button>
+<app-user-detail :myName="name"></app-user-detail>
+<!--child -->
+<p>User Name: {{ myName }}</p>
+<p>User Name Reverse: {{ reverseName() }}</p>
+```
+
+```javascript
+// parent
+data: function () {
+  return {
+    name: 'TestName'
+  };
+},
+methods: {
+  changeName () {
+    this.name = "Emir"
+  }
+},
+// child
+props: {
+    myName: {
+        type: String,
+        required: true
+    }
+},
+methods: {
+    reverseName () {
+        return this.myName.split("").reverse().join("");
+    }
+}
+// Notice if you passing Object or Array
+props: {
+    myName: {
+        type: Object,
+        default: function() {
+          return {
+            myName: ObjectName.name
+          }
+        }
+    }
+},
+```
+
+From child to parent
+
+```html
+<!-- child -->
+<button @click="resetName">Reset name</button>
+<!--parent -->
+<app-user-detail :myName="name" @nameWasReset="name = $event"></app-user-detail>
+```
+
+```javascript
+// child
+methods: {
+  resetName () {
+      this.myName = "Reset Name";
+      this.$emit('nameWasReset', this.myName);
+  }
+}
+```
+
+From child to parent using callback function
+
+```html
+<!-- child -->
+<button @click="resetFn()">Reset name with callback</button>
+<!--parent -->
+<app-user-detail :myName="name" :resetFn="resetName" @nameWasReset="name = $event"></app-user-detail>
+```
+
+```javascript
+// parent
+methods: {
+  changeName () {
+    this.name = "Emir";
+  },
+  resetName () {
+    this.name = "Reset Callback"
+  }
+},
+```
+
+From child to child using simple child -parent - child communication
+
+```html
+<!-- child - edit-->
+<p>User Age: {{ userAge }}</p>
+<button @click="editAge">Edit Age</button>
+<!-- child - details -->
+<p>User Age: {{ userAge }}</p>
+<!--parent -->
+<app-user-edit :userAge="age" @ageWasEdited="age = $event"></app-user-edit>
+```
+
+```javascript
+// parent
+data: function () {
+  return {
+    name: 'TestName',
+    age: 27
+  };
+},
+// child - edit
+export default {
+  name: "UserEdit",
+  props: {
+      userAge: {
+        type: Number,
+        required: true
+      }
+  },
+  methods: {
+      editAge () {
+        this.userAge = 31;
+        this.$emit('ageWasEdited', this.userAge);
+      }
+  }
+}
+// child - details
+props: {
+    myName: {
+      type: String,
+      required: true
+    },
+    resetFn: Function,
+    userAge: Number
+},
+```
+
+From child to child using Event Bus (good solution)
+
+```javascript
+// main.js
+export const eventBus = new Vue();
+
+// child - edit
+import { eventBus } from "../main.js";
+methods: {
+    editAge () {
+      this.userAge = 31;
+      //  this.$emit('ageWasEdited', this.userAge);
+      eventBus.$emit('ageWasEdited', this.userAge);
+    }
+}
+// child - details
+import { eventBus } from '../main.js';
+created () {
+  eventBus.$on('ageWasEdited', (age) => {
+      this.userAge = age;
+  });
+}
 ```
 
 [Top](#content)
