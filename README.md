@@ -5,6 +5,8 @@
 [Resource](#resource) <br/>
 [Intro](#intro)<br>
 [Vue Life Cycle](#lifecycle)<br>
+[Vue CLI](#cli)<br/>
+[Vue Components](#components)<br/>
 
 ## resource
 
@@ -15,6 +17,8 @@
 [Some unofficial docks](https://flaviocopes.com/vue-developer-roadmap/)
 
 [open source projects](https://medium.mybridge.co/30-amazing-vue-js-open-source-projects-for-the-past-year-v-2018-d39a0d019bb7)
+
+[vue-enterprise-boilerplate](https://github.com/chrisvfritz/vue-enterprise-boilerplate)
 
 #### Framework
 
@@ -173,5 +177,144 @@ new Vue({
   }
 });
 ```
+
+[Top](#content)
+
+## cli
+
+#### Vue-CLI-2
+
+[Learn more about the CLI here:](https://github.com/vuejs/vue-cli)
+
+[webpack template](https://github.com/vuejs-templates/webpack)
+
+```console
+sudo npm install -g vue-cli
+vue init <template like webpack-simple> <project name>
+cd <project name>
+npm install
+npm run dev
+
+# to build for production
+npm run build
+```
+
+#### Vue-CLI-3
+
+[Docks](https://medium.com/the-vue-point/vue-cli-3-0-is-here-c42bebe28fbb)
+
+```console
+sudo npm install -g @vue/cli
+vue create <project name>
+# set preset (vue-router, vuex, sass, babel,ts, pwa, eslint, unit-test, E2E test)
+cd <project name>
+npm run serve
+```
+
+###### Adding plugins
+
+```console
+vue add <plugin name example vuetify> (no vue-cli-plugin-)
+```
+
+[vuetify plugin](https://vuetifyjs.com/en/)
+
+Css -> sass
+
+```console
+npm install sass-loader node-sass
+add this to style tag
+<style scoped lang="scss">
+```
+
+###### ENV variables
+
+create .env file in root of project
+
+```javascript
+// in .env
+VUE_APP_URL = url_to_page;
+// TO access in component
+export default {
+  data() {
+    return {
+      url: process.env.VUE_APP_URL
+    };
+  }
+};
+// in html template
+{
+  {
+    url;
+  }
+}
+// can be set
+.env.development
+.env.production
+.env.test
+```
+
+##### Vue CLI GUI
+
+```console
+vue ui
+```
+
+##### Vue build targets
+
+Vue App
+
+```console
+vue build --target app
+or
+vue build
+```
+
+Vue Library
+
+```console
+vue build --target lib
+```
+
+Vue Web Component
+
+```console
+vue build --target wc
+```
+
+#### Debugging
+
+[The Vue Developer Tools](https://github.com/vuejs/vue-devtools)
+
+#### Import component
+
+Finally, it's important to be aware of the fact, that you can also load your App.vue File (your main Component/ Instance) via the following Way:
+
+in .babelrc:
+
+```javascript
+{
+  "presets": [
+    ["es2015", { "modules": false }],
+    ["stage-2"]
+  ]
+}
+```
+
+in main.js
+
+```javascript
+import Vue from "vue";
+import App from "./App.vue";
+
+new Vue({
+  el: "#app",
+  ...App
+});
+```
+
+[Top](#content)
+
+## components
 
 [Top](#content)
