@@ -317,6 +317,10 @@ new Vue({
 
 ## components
 
+[Docks](http://vuejs.org/guide/components.html)
+
+[Component registration](https://vuejs.org/v2/guide/components-registration.html)
+
 Simple component
 
 ```javascript
