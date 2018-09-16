@@ -765,4 +765,93 @@ export default {
 
 ## filter
 
+[Filters:](https://vuejs.org/v2/guide/filters.html)
+
+[Mixins:](http://vuejs.org/guide/mixins.html)
+
+Register global filter
+
+```html
+<p> {{ text | toLowercase }} </p>
+```
+
+```javascript
+// in main.js
+Vue.filter("toLowercase", value => value.toLowerCase());
+```
+
+Register local filter
+
+```html
+<p> {{ text | toUppercase }} </p>
+```
+
+```javascript
+data () {
+  return {
+    text: 'Hello there!'
+  }
+},
+filters: {
+  toUppercase (value) {
+    return value.toUpperCase();
+  }
+}
+```
+
+combine filters
+
+```html
+<p> {{ text | toUppercase | toLowercase }} </p>
+```
+
+Filter using Computed property
+
+```html
+<input v-model="filterText">
+<ul>
+  <li v-for="(item, index) in filterdeFruits" :key="index">{{ item }}</li>
+</ul>
+```
+
+```javascript
+data () {
+  return {
+    text: 'Hello there!',
+    fruits: ['Apple', 'Banana', 'Mango', 'Melon'],
+    filterText: ''
+  }
+},
+computed: {
+  filteredFruits () {
+    return this.fruits.filter(elem => elem.match(this.filterText))
+  }
+}
+```
+
+#### mixins
+
+Mixin come first in component so that component can overwrite all
+
+```javascript
+// see file fruitMixin.js
+import { fruitMixin } from "../fruitMixin.js";
+
+export default {
+  name: "List",
+  mixins: [fruitMixin]
+};
+```
+
+Global mixin
+
+```javascript
+// in main.js
+Vue.mixin({
+  created() {
+    console.log("Global");
+  }
+});
+```
+
 [Top](#content)
