@@ -9,6 +9,7 @@
 [Vue Components](#components)<br/>
 [Advance Component Usage](#componentUsage)<br/>
 [Handling User Input](#input)<br/>
+[Using and creating directive](#directive)<br/>
 
 ## resource
 
@@ -659,6 +660,102 @@ For button:
 ```html
 <button class="btn btn-primary" @click.prevent="submitted">Submit!</button>
  @click.prevent -> prevent submitting to server
+```
+
+[Top](#content)
+
+## directive
+
+#### Hooks
+
+```javascript
+bind(el, binding, vnode); // Directive is Attached
+inserted(el, binding, vnode); // Inserted in Parent Node
+update(el, binding, vnode, oldVnode); // Once Component is Updated (without Children)
+componentUpdated(el, binding, vnode, oldVnode); // Once Component is Updated (with Children)
+unbind(el, binding, vnode); // Once directive is removed
+```
+
+#### Register global
+
+in main.js
+
+```javascript
+Vue.directive("changecolor", {
+  bind(el, binding, vnode) {
+    // value
+    // el.style.backgroundColor = "green";
+    // el.style.backgroundColor = binding.value;
+    // modifiers
+    var delay = 0;
+    if (binding.modifiers["delayed"]) {
+      delay = 3000;
+    }
+    setTimeout(() => {
+      // arguments
+      if (binding.arg == "background") {
+        el.style.backgroundColor = binding.value;
+      } else {
+        el.style.color = binding.value;
+      }
+    }, delay);
+  }
+});
+```
+
+```html
+<p v-changecolor:background.delayed="'red'">Color this</p>
+<p v-changecolor="'blue'">Color this</p>
+```
+
+#### Register local
+
+```html
+<h3>Local</h3>
+<p v-localChangeColor:background.delayed.blink="{ mainColor : 'red', secondColor: 'green', delay: 500}">Color this</p>
+<p v-localChangeColor="{ mainColor : 'blue'}">Color this</p>
+```
+
+```javascript
+export default {
+  name: "app",
+  directives: {
+    localChangeColor: {
+      bind(el, binding, vnode) {
+        let delay = 0;
+        if (binding.modifiers["delayed"]) {
+          delay = 3000;
+        }
+        if (binding.modifiers["blink"]) {
+          let mainColor = binding.value.mainColor;
+          let secondColor = binding.value.secondColor;
+          let currentColor = mainColor;
+
+          setTimeout(() => {
+            setInterval(() => {
+              currentColor =
+                currentColor == secondColor ? mainColor : secondColor;
+              if (binding.arg == "background") {
+                el.style.backgroundColor = currentColor;
+              } else {
+                el.style.color = currentColor;
+              }
+            }, binding.value.delay);
+          }, delay);
+        } else {
+          setTimeout(() => {
+            // arguments
+            if (binding.arg == "background") {
+              el.style.backgroundColor = binding.value.mainColor;
+            } else {
+              el.style.color = binding.value.mainColor;
+            }
+          }, delay);
+        }
+      }
+    }
+  }
+};
 ```
 
 [Top](#content)
