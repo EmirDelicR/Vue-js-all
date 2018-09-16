@@ -51,6 +51,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
     name: 'Signup',
     data () {
@@ -61,7 +63,8 @@ export default {
             confirmPassword: '',
             country: 'usa',
             hobbyInputs: [],
-            terms: false
+            terms: false,
+            dataBaseUrl: process.env.VUE_APP_DATA_BASE_URL
         }
     },
     methods: {
@@ -85,7 +88,10 @@ export default {
                 hobbies: this.hobbyInputs.map(hobby => hobby.value),
                 terms: this.terms
             }
-            console.log(formData)
+            console.log(formData);
+            axios.post(this.dataBaseUrl + 'users.json', formData)
+                .then(res => console.log(res))
+                .catch(err => console.log(err));
         }
     }
 }

@@ -10,7 +10,8 @@
 [Advance Component Usage](#componentUsage)<br/>
 [Handling User Input](#input)<br/>
 [Using and creating directive](#directive)<br/>
-[FIlters and Mixins](#filter)<br/>
+[Filters and Mixins](#filter)<br/>
+[Server communication Axios](#axios)<br/>
 
 ## resource
 
@@ -852,6 +853,97 @@ Vue.mixin({
     console.log("Global");
   }
 });
+```
+
+[Top](#content)
+
+## axios
+
+[Axios:](https://github.com/axios/axios)
+
+```console
+npm install --save axios
+```
+
+Post
+
+```javascript
+import axios from "axios";
+axios
+  .post(this.dataBaseUrl + "users.json", formData)
+  .then(res => console.log(res))
+  .catch(err => console.log(err));
+```
+
+Get
+
+```javascript
+axios
+  .get(process.env.VUE_APP_DATA_BASE_URL + "users.json")
+  .then(res => console.log(res))
+  .catch(err => console.log(err));
+```
+
+Store data using get
+
+```javascript
+axios
+  .get(process.env.VUE_APP_DATA_BASE_URL + "users.json")
+  .then(res => {
+    const data = res.data;
+    const users = [];
+    for (let key in data) {
+      const user = data[key];
+      user.id = key;
+      users.push(user);
+    }
+    this.email = users[1].email; // make this dynamic
+  })
+  .catch(err => console.log(err));
+```
+
+Setting baseURL using axios
+
+```javascript
+// not working check because auto save add ;
+// in main.js
+axios.defaults.baseURL = process.env.VUE_APP_DATA_BASE_URL;
+// add headers
+axios.defaults.headers.common["Authorization"] = "test";
+axios.defaults.headers.get["Accepts"] = "application/json";
+// in components
+axios.get("/users.json");
+```
+
+Interceptors
+
+```javascript
+// in main.js
+axios.interceptors.request.use(config => {
+  console.log(config);
+  return config;
+});
+
+axios.interceptors.response.use(res => {
+  console.log(res);
+  return res;
+});
+```
+
+Custom axios instance
+
+```javascript
+// crate file name.js
+import axios from 'axios';
+const instance = axios.create({
+  baseURL: url
+});
+
+// set all like before
+instance.defaults.headers ....
+export default instance;
+// To use in different file
+import axiosInstanceName from 'file';
 ```
 
 [Top](#content)
