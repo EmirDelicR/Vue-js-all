@@ -7,9 +7,9 @@
 [Vue Life Cycle](#lifecycle)<br>
 [Vue CLI](#cli)<br/>
 [Vue Components](#components)<br/>
-[Advance Component Usage](#componentUsage)<br/>
+[Advance Component Usage](#componentusage)<br/>
 [Handling User Input](#input)<br/>
-[Using and creating directive](#directive)<br/>
+[Using and creating directive](#directiveall)<br/>
 [Filters and Mixins](#filter)<br/>
 [Server communication Axios](#axios)<br/>
 [Routing](#routing)<br/>
@@ -533,7 +533,7 @@ created () {
 
 [Top](#content)
 
-## componentUsage
+## componentusage
 
 [Slots:](http://vuejs.org/guide/components.html#Content-Distribution-with-Slots)
 
@@ -667,7 +667,7 @@ For button:
 
 [Top](#content)
 
-## directive
+## directiveall
 
 [Custom Directives:](http://vuejs.org/guide/custom-directive.html)
 
