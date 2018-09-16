@@ -12,6 +12,7 @@
 [Using and creating directive](#directive)<br/>
 [Filters and Mixins](#filter)<br/>
 [Server communication Axios](#axios)<br/>
+[Routing](#routing)<br/>
 
 ## resource
 
@@ -944,6 +945,231 @@ instance.defaults.headers ....
 export default instance;
 // To use in different file
 import axiosInstanceName from 'file';
+```
+
+[Top](#content)
+
+## routing
+
+[Github Page:](https://github.com/vuejs/vue-router)
+
+[Documentation:](https://router.vuejs.org/en/)
+
+```console
+vue add router
+```
+
+```javascript
+// in App.vue
+<router-view></router-view>
+// this render '/' route
+// make a router link
+<router-link to="/user">User</router-link>
+// To apply class active and also not apply if match /
+<router-link to="/" tag="li" active-class="active" exact>
+    <a>Home</a>
+</router-link>
+```
+
+Navigation using button and function
+
+```html
+<button @click="navigateToHome" class="btn btn-primary">Go to Home</button>
+```
+
+```javascript
+export default {
+  name: "User",
+  methods: {
+    navigateToHome() {
+      this.$router.push("/");
+    }
+  }
+};
+```
+
+Passing attribute to route
+
+```javascript
+// In router.js
+path: "/user/:id",
+
+// In header.vue
+<router-link to="/user/1" tag="li" active-class="active">
+  <a>User</a>
+</router-link>
+// In user.vue
+
+data () {
+  return {
+      id: this.$route.params.id
+  }
+},
+watch: {
+  '$route' (to, from) {
+      this.id = to.params.id;
+  }
+},
+```
+
+Child Routes
+
+```javascript
+// In router.js
+{
+  path: "/user",
+  name: "User",
+  // route level code-splitting
+  // this generates a separate chunk (about.[hash].js) for this route
+  // which is lazy-loaded when the route is visited.
+  component: () =>
+    import(/* webpackChunkName: "about" */ "./components/user/User.vue"),
+  children: [
+    {
+      path: "",
+      component: () =>
+        import(/* webpackChunkName: "about" */ "./components/user/UserStart.vue")
+    },
+    {
+      path: ":id",
+      component: () =>
+        import(/* webpackChunkName: "about" */ "./components/user/UserDetails.vue")
+    },
+    {
+      path: ":id/edit",
+      component: () =>
+        import(/* webpackChunkName: "about" */ "./components/user/UserEdit.vue")
+    }
+  ]
+}
+// In user.vue
+<router-view></router-view>
+```
+
+Passing data route
+
+```html
+<!-- in component -->
+<router-link tag="button" :to="{ name: 'userEdit', params: {id: $route.params.id }}" class="btn btn-primary">Edit User</router-link>
+```
+
+```javascript
+// in router.js
+path: ":id/edit",
+component: () =>
+  import(/* webpackChunkName: "about" */ "./components/user/UserEdit.vue"),
+name: "userEdit"
+```
+
+Query parameters
+
+```html
+<router-link tag="button" :to="{ name: 'userEdit', params: {id: $route.params.id }, query: { locale: 'en', q: 100 }}" class="btn btn-primary">Edit User</router-link>
+
+<!--To extract data -->
+<p>Locale: {{ $route.query.locale }}</p>
+<p>Number: {{ $route.query.q }}</p>
+```
+
+Router views names
+
+```html
+<router-view name="header-top"></router-view>
+<router-view></router-view>
+<router-view name="header-bottom"></router-view>
+```
+
+```javascript
+// In router.js
+components: {
+  default: () =>
+    import(/* webpackChunkName: "about" */ "./components/user/User.vue"),
+  "header-bottom": Header
+},
+```
+
+Redirecting - catch all
+
+```javascript
+{
+  path: "*",
+  redirect: "/"
+}
+```
+
+Passing the Hash Fragment
+
+```html
+<p id="data">Some Data</p>
+<!-- in Router -->
+<router-link tag="button" :to="link" class="btn btn-primary">Edit User</router-link>
+```
+
+```javascript
+ // In component
+ data () {
+  return {
+    link: {
+      name: 'userEdit',
+      params: {
+        id: this.$route.params.id
+      },
+      query: {
+        locale: 'en',
+        q: 100
+      },
+      hash: '#data'
+
+    }
+  }
+}
+// in router.js
+scrollBehavior(to, from, savedPosition) {
+  if (savedPosition) {
+    return savedPosition;
+  }
+  if (to.hash) {
+    return { selector: to.hash };
+  }
+  return {x: 0, y:0};
+},
+```
+
+Protecting routes with guard
+
+```javascript
+// beforeEnter
+path: ":id",
+component: () =>
+  import(/* webpackChunkName: "about" */ "./components/user/UserDetails.vue"),
+beforeEnter: (to, from, next) => {
+  console.log("Inside Guard");
+  next();
+}
+// or in component
+beforeRouteEnter (to, from, next) {
+    next(vm => {
+        vm.link;
+    });
+}
+// check auth
+if(auth)
+  next();
+else
+next(false)
+
+// beforeLeave only put in component
+beforeRouteLeave (to, from, next) {
+  if (this.edited) {
+      next();
+  } else {
+      if (confirm("Are you sure?")) {
+          next();
+      } else {
+          next(false);
+      }
+  }
+}
 ```
 
 [Top](#content)
