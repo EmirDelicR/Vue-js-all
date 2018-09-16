@@ -10,6 +10,7 @@
 [Advance Component Usage](#componentUsage)<br/>
 [Handling User Input](#input)<br/>
 [Using and creating directive](#directive)<br/>
+[FIlters and Mixins](#filter)<br/>
 
 ## resource
 
@@ -666,6 +667,8 @@ For button:
 
 ## directive
 
+[Custom Directives:](http://vuejs.org/guide/custom-directive.html)
+
 #### Hooks
 
 ```javascript
@@ -757,5 +760,9 @@ export default {
   }
 };
 ```
+
+[Top](#content)
+
+## filter
 
 [Top](#content)
