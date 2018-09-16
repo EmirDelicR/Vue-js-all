@@ -8,6 +8,7 @@
 [Vue CLI](#cli)<br/>
 [Vue Components](#components)<br/>
 [Advance Component Usage](#componentUsage)<br/>
+[Handling User Input](#input)<br/>
 
 ## resource
 
@@ -611,6 +612,53 @@ To not destroy component:
     <p slot="content">A wonderful quote!</p>
   </component>
 </keep-alive>
+```
+
+[Top](#content)
+
+## input
+
+[Forms:](http://vuejs.org/guide/forms.html)
+
+Use v-model="property" for binding.
+
+Behind scene v-model work:
+
+```javascript
+v-model="property"
+// is the same as
+:value="property"
+@input="property = $event.target.value"
+```
+
+v-model modifiers: <br/>
+v-model.lazy -> fire when click on other input<br/>
+v.model.trim -> remove empty spaces <br/>
+v-model.number -> convert to number
+
+For textarea use v-model and to keep structure<br/>
+
+```html
+<p style="white-space: pre">Message: {{ message }} </p>
+```
+
+For checkbox use v-model="sameProperty" to store all values in one array
+
+For radio buttons use v-model="sameProperty" to store in same variable
+
+For options:
+
+```html
+<select id="priority" class="form-control" v-model="selectedProperty">
+  <option v-for="(item, index) in priorities" :key="index"> {{ item }} </option>
+</select>
+```
+
+For button:
+
+```html
+<button class="btn btn-primary" @click.prevent="submitted">Submit!</button>
+ @click.prevent -> prevent submitting to server
 ```
 
 [Top](#content)
