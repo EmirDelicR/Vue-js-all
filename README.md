@@ -13,6 +13,7 @@
 [Filters and Mixins](#filter)<br/>
 [Server communication Axios](#axios)<br/>
 [Routing](#routing)<br/>
+[State management - Vuex](#vuex)<br/>
 
 ## resource
 
@@ -1170,6 +1171,232 @@ beforeRouteLeave (to, from, next) {
       }
   }
 }
+```
+
+[Top](#content)
+
+## vuex
+
+[Vuex Github Page:](https://github.com/vuejs/vuex)
+
+[Vuex Documentation:](https://vuex.vuejs.org/en/)
+
+```console
+vue add vuex
+```
+
+#### Getters
+
+Use getters when you have a lot of duplicated code.
+
+```javascript
+// In store.js
+export default new Vuex.Store({
+  state: {
+    counter: 1
+  },
+  mutations: {},
+  actions: {},
+  getters: {
+    doubleCounter: state => {
+      return state.counter * 2;
+    },
+    stringCounter: state => {
+      return state.counter + " Clicks";
+    }
+  }
+});
+
+// in component
+import { mapGetters } from 'vuex';
+export default {
+    name: 'Counter',
+    computed: mapGetters({
+        counter: 'doubleCounter',
+        clicks: 'stringCounter'
+    })
+
+}
+```
+
+```html
+<!-- in component -->
+<div>
+  <p>Counter is {{ counter }}</p>
+  <p>Clicks: {{ clicks }}</p>
+</div>
+```
+
+Adding more computed properties:
+
+```javascript
+import { mapGetters } from 'vuex';
+export default {
+    name: 'Counter',
+    computed: {
+      ...mapGetters({
+        counter: 'doubleCounter',
+        clicks: 'stringCounter'
+    }),
+    ourOwnProperty() {
+
+    }
+
+}
+```
+
+#### Mutations
+
+Mutation always must be synchronies (use action for asynchronous)
+
+```javascript
+// in store.js
+mutations: {
+  increment: state => {
+    state.counter++;
+  },
+  decrement: state => {
+    state.counter--;
+  }
+},
+// in component
+import { mapMutations } from "vuex";
+export default {
+  name: "Counter",
+  methods: {
+    ...mapMutations({
+      inc: "increment",
+      dec: "decrement"
+    }),
+    myMethods() {}
+  }
+};
+```
+
+#### Actions
+
+Best practice is to always use actions for mutating state.
+Functions already are builtin to receive an argument
+
+```javascript
+// in store.js
+actions: {
+  increment: (context) => {
+    context.commit("increment");
+  },
+  // passing argument
+  decrement: ({ commit }, payload) => {
+    commit("decrement", payload);
+  },
+  // passing multi arguments
+  asyncIncrement: ({ commit }, obj) => {
+    setTimeout(() => {
+      commit("increment", obj.by);
+    }, obj.duration);
+  }
+},
+// in component
+import { mapActions } from 'vuex';
+export default {
+  name: 'Counter',
+  methods: {
+    ...mapActions({
+      inc: 'increment',
+      dec: 'decrement',
+      asyncInc: 'asyncIncrement'
+    }),
+    myMethods () {
+
+    }
+  }
+}
+```
+
+```html
+<button @click="inc">Increment</button>
+<button @click="dec(100)">Decrement</button>
+<button @click="asyncInc({by:50, duration:2000})">Async Increment</button>
+```
+
+#### Two-way-binding(v-model) and Vuex
+
+```javascript
+// in store.js
+state: {
+  value: 0
+},
+mutations: {
+  updateValue: (state, payload) => {
+    state.value = payload;
+  }
+},
+actions: {
+  updateValue: ({ commit }, payload) => {
+    commit("updateValue", payload);
+  }
+},
+getters: {
+  value: state => {
+    return state.value;
+  }
+}
+// In component (Home.vue)
+computed: {
+  value: {
+    get () {
+      return this.$store.getters.value;
+    },
+    // This is setter for computed property
+    set (value) {
+      this.$store.dispatch('updateValue', value);
+    }
+  }
+  }
+```
+
+```html
+<input type="text" v-model="value">
+<p>{{ value }}</p>
+```
+
+#### Structure of Folders
+
+// outsource all to folder modules/name.js and import that to store
+
+```javascript
+//in store.js
+import counters from "./modules/counter";
+modules: {
+  counters;
+}
+```
+
+#### Using namespaces
+
+[Namespace](https://github.com/vuejs/vuex/releases/tag/v2.1.0)
+
+in store crate file types.js
+
+```javascript
+export const NAME = "fileName/NAME";
+
+// in fileName (counters example)
+import * as types from "../types";
+const getters = {
+  [types.DOUBLE_COUNTER]: state => {
+    return state.counter * 2;
+  }
+};
+// in component (Result example)
+import * as types from "../store/types.js";
+export default {
+  computed: {
+    ...mapGetters({
+      counter: [types.DOUBLE_COUNTER],
+      clicks: "stringCounter"
+    })
+  }
+};
 ```
 
 [Top](#content)
