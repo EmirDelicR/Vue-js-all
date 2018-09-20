@@ -15,6 +15,7 @@
 [Routing](#routing)<br/>
 [State management - Vuex](#vuex)<br/>
 [Authentication](#auth)<br/>
+[Form Validation](#form)<br/>
 
 ## resource
 
@@ -1409,5 +1410,116 @@ export default {
 [Authenticating Requests - Firebase](https://firebase.google.com/docs/database/rest/auth)
 
 [JSON Web Token](https://jwt.io/)
+
+[Top](#content)
+
+[Top](#content)
+
+## form
+
+[Vuelidate Docs:](https://monterail.github.io/vuelidate/)
+
+Install Vuelidate
+
+```console
+npm install --save vuelidate
+```
+
+```javascript
+// in main js
+import Vuelidate from "vuelidate";
+Vue.use(Vuelidate);
+// in component
+import { required, email } from "vuelidate/lib/validators";
+validations: {
+  email: {
+    required, email;
+  }
+}
+```
+
+```html
+<input type="email" id="email" @input="$v.email.$touch()" v-model="email">
+<div>{{ $v }}</div>
+<!-- OR -->
+<input type="email" id="email" @blur="$v.email.$touch()" v-model="email">
+<p v-if="!$v.email.email">Please provide valide email address</p>
+<p v-if="!$v.email.required">Must not be empty</p>
+<!-- To output value -->
+<p v-if="!$v.age.minVal">Must be at lest: {{ $v.age.$params.minVal.min }} </p>
+```
+
+Password validation
+
+```javascript
+password: {
+    required,
+    minLen: minLength(6)
+},
+confirmPassword: {
+    sameAs: sameAs(vm => {
+        return vm.password
+    })
+}
+```
+
+```html
+<div class="input" :class="{invalide: $v.password.$error}">
+    <label for="password">Password</label>
+    <input type="password" id="password" @blur="$v.password.$touch()" v-model="password">
+</div>
+<div class="input" :class="{invalide: $v.confirmPassword.$error}">
+    <label for="confirm-password">Confirm Password</label>
+    <input type="password" id="confirm-password" @blur="$v.confirmPassword.$touch()" v-model="confirmPassword">
+</div>
+```
+
+Validate arrays
+
+```javascript
+hobbyInputs: {
+  minLen: minLength(1),
+  $each: {
+    // this is value from hobbyInputs
+    value: {
+      required,
+      minLen: minLength(5)
+  }
+}
+```
+
+```html
+ <div class="hobby-list">
+    <div class="input" v-for="(hobbyInput, index) in hobbyInputs" :class="{invalide: $v.hobbyInputs.$each[index].$invalid}" :key="hobbyInput.id">
+        <label :for="hobbyInput.id">Hobby #{{ index }}</label>
+        <input type="text" :id="hobbyInput.id" @blue="$v.hobbyInputs.$each[index].value.$touch()" v-model="hobbyInput.value">
+        <button @click="onDeleteHobby(hobbyInput.id)" type="button">X</button>
+    </div>
+</div>
+```
+
+Control of submit
+
+```html
+<button type="submit" :disabled="$v.$invalid">Submit</button>
+```
+Custom validator
+
+```javascript
+uniqueValidator: val => {
+  if (val === '') return true
+  return axios.get(process.env.VUE_APP_DATA_BASE_URL + 'users.json?orderBy="email"&equalTo="' + val + '"')
+      .then(res => {
+          return Object.keys(res.data).length === 0;
+      })
+      .catch(err => {
+          console.log(err);
+      })
+}
+```
+
+```html
+<!-- not need automatic apply -->
+```
 
 [Top](#content)
