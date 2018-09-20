@@ -14,6 +14,7 @@
 [Server communication Axios](#axios)<br/>
 [Routing](#routing)<br/>
 [State management - Vuex](#vuex)<br/>
+[Authentication](#auth)<br/>
 
 ## resource
 
@@ -1398,5 +1399,15 @@ export default {
   }
 };
 ```
+
+[Top](#content)
+
+## auth
+
+[Firebase auth API](https://firebase.google.com/docs/reference/rest/auth/)
+
+[Authenticating Requests - Firebase](https://firebase.google.com/docs/database/rest/auth)
+
+[JSON Web Token](https://jwt.io/)
 
 [Top](#content)
