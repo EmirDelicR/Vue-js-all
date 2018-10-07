@@ -77,6 +77,8 @@
 
 [Design Systems with Vue.js](https://vueds.com/)
 
+[Vue Developer Tools:](https://github.com/vuejs/vue-devtools)
+
 #### E2E testing
 
 [Nightwatch](https://www.youtube.com/watch?v=PFU1G2J6LBU)
