@@ -16,6 +16,7 @@
 [State management - Vuex](#vuex)<br/>
 [Authentication](#auth)<br/>
 [Form Validation](#form)<br/>
+[Animation](#anime)<br/>
 
 ## resource
 
@@ -1415,8 +1416,6 @@ export default {
 
 [Top](#content)
 
-[Top](#content)
-
 ## form
 
 [Vuelidate Docs:](https://monterail.github.io/vuelidate/)
@@ -1505,23 +1504,115 @@ Control of submit
 ```html
 <button type="submit" :disabled="$v.$invalid">Submit</button>
 ```
+
 Custom validator
 
 ```javascript
 uniqueValidator: val => {
-  if (val === '') return true
-  return axios.get(process.env.VUE_APP_DATA_BASE_URL + 'users.json?orderBy="email"&equalTo="' + val + '"')
-      .then(res => {
-          return Object.keys(res.data).length === 0;
-      })
-      .catch(err => {
-          console.log(err);
-      })
-}
+  if (val === "") return true;
+  return axios
+    .get(
+      process.env.VUE_APP_DATA_BASE_URL +
+        'users.json?orderBy="email"&equalTo="' +
+        val +
+        '"'
+    )
+    .then(res => {
+      return Object.keys(res.data).length === 0;
+    })
+    .catch(err => {
+      console.log(err);
+    });
+};
 ```
 
 ```html
 <!-- not need automatic apply -->
 ```
+
+[Top](#content)
+
+## anime
+
+```javascript
+<transition>{{ element }}</transition>
+```
+
+Use it with v-if and v-show
+
+To element is added:
+
+class:
+
+1. \*-enter
+2. \*-enter-active
+3. \*-leave
+4. \*-leave-active
+
+Example:
+
+```javascript
+<transition name="fade">
+  <div v-if="show">Info</div>
+</transition>
+```
+
+will create:
+
+1. fade-enter
+2. fade-enter-active
+3. fade-leave
+4. fade-leave-active
+
+Use type to set priority if you have transition and animation in same class
+for example
+
+```css
+.slide-enter-active {
+  animation: anime 1s;
+  transition: opacity 2s;
+}
+```
+
+This means that when animation is finis ali is finish in vue.js
+
+```javascript
+<transition name="slide" type="animation">
+  <div v-if="show">Info</div>
+</transition>
+```
+
+Use appear to set init animation during page load
+
+```javascript
+<transition name="slide" appear>
+  <div v-if="show">Info</div>
+</transition>
+```
+
+To overwrite default class \*-enter ... use this:
+
+```javascript
+<transition
+  enter-class="Some class"
+  enter-active-class="Some class"
+  leave-class="Some class"
+  leave-active-class="Some class"
+>
+  <div v-if="show">Info</div>
+</transition>
+```
+
+Note do not leave : enter-class="" < this will throw an error>
+
+Animation with two div-s
+
+```javascript
+<transition :name="alertAnimation" mode="out-in">
+  <div v-if="show" key="info">Info</div>
+  <div v-else key="warning">Info-else</div>
+</transition>
+```
+
 
 [Top](#content)
