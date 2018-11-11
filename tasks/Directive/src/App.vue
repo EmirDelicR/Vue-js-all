@@ -1,7 +1,6 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <Directive msg="Welcome to Your Vue.js App" />
+    <Directive />
   </div>
 </template>
 
