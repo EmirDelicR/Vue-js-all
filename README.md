@@ -17,6 +17,7 @@
 [Authentication](#auth)<br/>
 [Form Validation](#form)<br/>
 [Animation](#anime)<br/>
+[Testing](#testing)
 
 ## resource
 
@@ -1614,5 +1615,17 @@ Animation with two div-s
 </transition>
 ```
 
+
+[Top](#content)
+
+## testing
+
+[Test-doc](https://vue-test-utils.vuejs.org/api/wrapper/#classes-classname)
+
+[More-doc](https://lmiller1990.github.io/vue-testing-handbook/rendering-a-component.html#two-ways-to-render)
+
+[Advance-test](https://medium.com/3yourmind/testing-vue-components-a-cheat-sheet-299b3b8be88d)
+
+[Jest-doc](https://jestjs.io/docs/en/using-matchers)
 
 [Top](#content)
