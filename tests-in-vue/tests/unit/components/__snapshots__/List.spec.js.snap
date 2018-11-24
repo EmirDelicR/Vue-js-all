@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List.vue matches snapshot 1`] = `
+<div id="some-id" class="list">
+  [
+  "item 1",
+  "item 2"
+  ]
+  <ul class="list-cl">
+    <li>item 1</li>
+    <li>item 2</li>
+  </ul>
+</div>
+`;
