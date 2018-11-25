@@ -38,4 +38,13 @@ describe('List.vue', () => {
     expect(wrapper.props().items[0]).toMatch('item 1')
     expect(wrapper.props().items[1]).toMatch('item 2')
   })
+
+  it('testing wrapper html', () => {
+    const wrapper = shallowMount(List, data)
+    expect(wrapper.html()).toContain(
+      '<ul class="list-cl"><li>item 1</li><li>item 2</li></ul>',
+    )
+
+    expect(wrapper.find('li').text()).toMatch('item 1')
+  })
 })

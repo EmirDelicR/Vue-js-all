@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card-Module-Mock-Store-From-Utils should render content correctly 1`] = `
+<div
+  class="vte__cool-card"
+>
+  <p
+    data-test="card-div"
+  >
+    hello I am a card :)
+  </p>
+   
+  <p>
+    Current Total:
+  </p>
+   
+  <p>
+    567
+  </p>
+   
+  <button>
+    Increment
+  </button>
+</div>
+`;

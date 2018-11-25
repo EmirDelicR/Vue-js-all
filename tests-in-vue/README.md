@@ -35,12 +35,14 @@ npm run test:unit FileName
 
 [Jest-doc](https://jestjs.io/docs/en/using-matchers)
 
-- test component html
+- test component html (see list.spec.js)
 
-- test component methods
+* test component methods (See user.spec.js)
 
-- test router
+* test router (Card.spec.js component)
 
-- test store
+* test store (actions getters mutations, Card.spec.js component)
 
-- test utils functions
+* test utils functions
+
+* test async code
