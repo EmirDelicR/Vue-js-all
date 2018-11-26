@@ -1,0 +1,15 @@
+.mixin {
+  p {
+    @include transitElement(0.7, 45deg);
+  }
+
+  .transit {
+    color: red;
+    font-size: 12px;
+    @include transit(color 4s, font-size 3s);
+    &:hover {
+      color: blue;
+      font-size: 16px;
+    }
+  }
+}

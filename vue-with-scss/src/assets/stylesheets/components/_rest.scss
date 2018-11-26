@@ -1,0 +1,83 @@
+.rest {
+  /*
+  *   http://sass-lang.com/documentation/file.SASS_REFERENCE.html#how_it_works
+  */
+  /* using @extend */
+  .error {
+    color: red;
+    font-size: $fs-6;
+  }
+  .critical-error {
+    @extend .error;
+    border: 1px solid red;
+    background-color: rgba(255, 0, 0, 0.295);
+  }
+  a {
+    color: blue;
+    &:hover {
+      color: red;
+    }
+  }
+  .link {
+    @extend a;
+  }
+
+  /* Custom functions (use them for calculation) look utilities -> _functions */
+  .func {
+    font-size: double(12px);
+  }
+
+  /* Placeholder Selector (Use them if you dont use class) */
+  %thing {
+    background-color: blue;
+  }
+  .some-class {
+    @extend %thing;
+  }
+
+  /* Build-in functions */
+  // http://sass-lang.com/documentation/Sass/Script/Functions.html
+
+  /* Interpolation */
+  $b: 'border';
+  .x-class {
+    #{$b}: 1px solid rgb(123, 255, 0);
+  }
+
+  /* Lists */
+  /*
+    $list: 'bob','fred','simon','tony'
+    methods:
+    length($list)
+    nth($list, 2)
+    index($list, 'fred')
+    join($list, $list2)
+    append($list, 'steve')
+  */
+
+  $pages: 'home', 'products', 'service', 'contact';
+  @each $pg in $pages {
+    li.#{$pg} {
+      color: red;
+    }
+  }
+
+  /* For loop */
+  @for $i from 1 through 5 {
+    .some-list li:nth-child(#{$i}) {
+      background-color: darken(red, $i * 10%);
+    }
+  }
+
+  /* If statement */
+  $up: false;
+  .y-class {
+    @if $up == null {
+      background-color: red;
+    } @else if $up == true {
+      background-color: blue;
+    } @else {
+      background-color: green;
+    }
+  }
+}

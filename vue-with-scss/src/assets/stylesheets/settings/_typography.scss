@@ -1,0 +1,46 @@
+@include font-face($main-font, '#{$path}/#{$main-font}-Regular', $fw-regular);
+@include font-face('#{$main-font}-Medium', '#{$path}/#{$main-font}-Medium', $fw-medium);
+@include font-face('#{$main-font}-MediumItalic', '#{$path}/#{$main-font}-MediumItalic', $fw-medium, italic);
+@include font-face('#{$main-font}-Bold', '#{$path}/#{$main-font}-Bold', $fw-bold);
+@include font-face('#{$main-font}-BoldItalic', '#{$path}/#{$main-font}-BoldItalic', $fw-bold, italic);
+@include font-face('#{$main-font}-Black', '#{$path}/#{$main-font}-Black', $fw-black);
+@include font-face('#{$main-font}-BlackItalic', '#{$path}/#{$main-font}-BlackItalic', $fw-black, italic);
+
+body {
+  font-family: $main-font;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $dark-grey;
+}
+
+h1, h2 {
+  font-family: '#{$main-font}-Medium';
+}
+h3, h4, h5, h6 {
+  font-family: '#{$main-font}-Bold'
+}
+
+h1 {
+  @include set-fonts($fs-1, $ls-1, $lh-1);
+}
+
+h2 {
+  @include set-fonts($fs-2, $ls-2, $lh-2);
+}
+
+h3 {
+  @include set-fonts($fs-3, $ls-3, $lh-3);
+}
+
+h4 {
+  @include set-fonts($fs-4, $ls-3, $lh-4);
+}
+
+h5 {
+  @include set-fonts($fs-5, $ls-3, $lh-5);
+}
+
+h6 {
+  @include set-fonts($fs-7, $ls-3, $lh-8);
+}
