@@ -1628,4 +1628,6 @@ Animation with two div-s
 
 [Jest-doc](https://jestjs.io/docs/en/using-matchers)
 
+[Mocking in jest](https://medium.com/@rickhanlonii/understanding-jest-mocks-f0046c68e53c)
+
 [Top](#content)
