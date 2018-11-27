@@ -1,0 +1,35 @@
+.grid {
+  // https://css-tricks.com/snippets/css/complete-guide-grid/
+  // https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout
+  // https://learncssgrid.com/
+  .wrapper {
+    background-color: cornflowerblue;
+    color: cornsilk;
+
+    /* Start point */
+    display: grid;
+    /* fr is fraction unit */
+    // grid-template-columns: 1fr 1fr 1fr;
+    // can be write like
+    grid-template-columns: repeat(3, 1fr);
+    // grid-template-rows: 3fr 1fr;
+    grid-auto-rows: minmax(20px, auto);
+    // grid-column-gap: 10px;
+    // grid-row-gap: 10px;
+    div {
+      background-color: green;
+      color: black;
+    }
+    .box1 {
+      grid-column-start: 1;
+      grid-column-end: 4;
+    }
+
+    .box2 {
+      grid-column-start: 1;
+      grid-column-end: 3;
+      grid-row-start: 2;
+      grid-row-end: 5;
+    }
+  }
+}

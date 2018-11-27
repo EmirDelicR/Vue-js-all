@@ -5,6 +5,8 @@
     <mixin-component />
     <hr />
     <rest />
+    <hr />
+    <grid />
   </div>
 </template>
 
@@ -12,13 +14,16 @@
 import Nesting from '@/components/Nesting.vue'
 import MixinComponent from '@/components/MixinComponent.vue'
 import Rest from '@/components/RestScss.vue'
+import Grid from '@/components/Grid.vue'
+
 export default {
   name: 'app',
   components: {
     Nesting,
     MixinComponent,
-    Rest
-  }
+    Rest,
+    Grid
+  },
 }
 </script>
 
