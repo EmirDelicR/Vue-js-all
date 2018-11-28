@@ -19,4 +19,12 @@ export default {
   removeItemFromCart(state, index) {
     state.cart.splice(index, 1)
   },
+
+  emptyCart(state) {
+    state.cart = []
+  },
+
+  setCheckoutStatus(state, status) {
+    state.checkoutStatus = status
+  },
 }

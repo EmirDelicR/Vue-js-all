@@ -20,6 +20,11 @@
       &:hover {
         border: 1px solid rgb(62, 62, 201);
       }
+      &:disabled {
+        opacity: 0.4;
+        color: red;
+        cursor: default;
+      }
     }
   }
 }

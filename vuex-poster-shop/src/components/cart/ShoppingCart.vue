@@ -13,11 +13,11 @@
     >
       <p>Total: {{ cartTotal | currency }}</p>
       <button @click="checkout">Checkout</button>
-      <p v-if="getCheckoutStatus">{{ getCheckoutStatus }}</p>
     </div>
     <div v-else>
       <p>No item in Shopping cart</p>
     </div>
+    <p v-if="getCheckoutStatus">{{ getCheckoutStatus }}</p>
   </div>
 </template>
 

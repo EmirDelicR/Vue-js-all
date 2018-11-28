@@ -5,18 +5,26 @@
       <p>Price: {{ product.price | currency }}</p>
       <p>In stock: {{ product.inventory }}</p>
     </div>
-    <button @click="addProductToCart(product)">Add</button>
+    <button
+      :disabled="!productIsInStock(product)"
+      @click="addProductToCart(product)"
+    >Add</button>
   </div>
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 export default {
   name: 'Product',
   props: {
     product: {
       type: Object,
     }
+  },
+  computed: {
+    ...mapGetters({
+      productIsInStock: 'productIsInStock'
+    })
   },
   methods: {
     ...mapActions({

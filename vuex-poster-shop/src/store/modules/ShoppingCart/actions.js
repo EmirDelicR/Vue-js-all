@@ -1,3 +1,5 @@
+import shop from '@/api/shop'
+
 export default {
   addProductToCart({ commit, state }, product) {
     let cartItem = state.cart.find(item => item.id === product.id)
@@ -23,5 +25,20 @@ export default {
       let index = state.cart.findIndex(x => x.id == cartItem.id)
       commit('removeItemFromCart', index)
     }
+  },
+
+  checkout({ commit, state }) {
+    shop.buyProducts(
+      () => {
+        commit('setCheckoutStatus', 'Checkout is success. Buy again :)')
+        setTimeout(() => {
+          commit('emptyCart')
+          commit('setCheckoutStatus', null)
+        }, 2000)
+      },
+      () => {
+        commit('setCheckoutStatus', 'Sorry there is problem! Try again :)')
+      },
+    )
   },
 }
