@@ -4,6 +4,7 @@
     class="root-app"
   >
     <app-header />
+    <search />
     <product-list />
     <shopping-cart />
     <app-footer />
@@ -15,6 +16,7 @@ import ProductList from '@/components/product/ProductList.vue'
 import ShoppingCart from '@/components/cart/ShoppingCart.vue'
 import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
+import Search from '@/components/search/search.vue'
 
 export default {
   name: 'app',
@@ -22,12 +24,9 @@ export default {
     'app-header': Header,
     ProductList,
     ShoppingCart,
-    'app-footer': Footer
+    'app-footer': Footer,
+    Search
   },
-  created () {
-    console.log(process.env.VUE_APP_CLIENT_ID)
-  }
-
 }
 </script>
 

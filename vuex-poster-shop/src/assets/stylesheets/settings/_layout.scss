@@ -1,9 +1,10 @@
 .root-app {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 60px calc(100vh - 120px) 60px;
+  grid-template-rows: 60px 60px calc(100vh - 180px) 60px;
   grid-template-areas:
     'header header'
+    'search search'
     'list shop'
     'footer footer';
 
@@ -11,6 +12,9 @@
     grid-area: header;
   }
 
+  .search {
+    grid-area: search;
+  }
   .product-list {
     grid-area: list;
   }
