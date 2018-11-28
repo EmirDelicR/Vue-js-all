@@ -22,15 +22,17 @@
       }
     }
   }
-  > p {
-    color: green;
-    padding-top: 20px;
-    text-align: right;
-  }
-  > button {
-    float: right;
-    padding: 4px;
-    margin-top: 6px;
-    background-color: aqua;
+  .total {
+    p {
+      color: green;
+      padding-top: 20px;
+      text-align: right;
+    }
+    button {
+      float: right;
+      padding: 4px;
+      margin-top: 6px;
+      background-color: aqua;
+    }
   }
 }

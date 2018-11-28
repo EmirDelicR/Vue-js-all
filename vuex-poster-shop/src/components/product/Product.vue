@@ -2,7 +2,7 @@
   <div class="product">
     <div>
       <p>{{ product.title }}</p>
-      <p>Price: {{ product.price }}</p>
+      <p>Price: {{ product.price | currency }}</p>
       <p>In stock: {{ product.inventory }}</p>
     </div>
     <button @click="addProductToCart(product)">Add</button>

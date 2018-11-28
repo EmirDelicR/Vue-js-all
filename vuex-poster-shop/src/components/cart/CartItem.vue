@@ -2,7 +2,7 @@
   <div class="cart-item">
     <div>
       <p>{{ cartItem.title }}</p>
-      <p>Price: {{ cartItem.price }}</p>
+      <p>Price: {{ cartItemPriceTotal | currency }}</p>
       <p>Quantity: {{ cartItem.quantity }}</p>
     </div>
     <button @click="removeProductFromCart(cartItem)">Remove</button>
@@ -23,6 +23,11 @@ export default {
     ...mapActions({
       removeProductFromCart: 'removeProductFromCart'
     })
+  },
+  computed: {
+    cartItemPriceTotal () {
+      return this.cartItem.price * this.cartItem.quantity
+    }
   }
 }
 </script>

@@ -7,14 +7,22 @@
     >
       <cart-item :cartItem="item" />
     </div>
-    <p>Total: {{ cartTotal }}</p>
-    <button>Checkout</button>
-
+    <div
+      v-if="cartItems.length"
+      class="total"
+    >
+      <p>Total: {{ cartTotal | currency }}</p>
+      <button @click="checkout">Checkout</button>
+      <p v-if="getCheckoutStatus">{{ getCheckoutStatus }}</p>
+    </div>
+    <div v-else>
+      <p>No item in Shopping cart</p>
+    </div>
   </div>
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters, mapActions, mapState } from 'vuex'
 import CartItem from './CartItem'
 export default {
   name: 'ShoppingCart',
@@ -25,7 +33,15 @@ export default {
     ...mapGetters({
       cartItems: 'cartItems',
       cartTotal: 'cartTotal'
-    })
+    }),
+    ...mapState({
+      getCheckoutStatus: state => state.ShoppingCart.checkoutStatus
+    }),
+  },
+  methods: {
+    ...mapActions({
+      checkout: 'checkout'
+    }),
   }
 
 }
