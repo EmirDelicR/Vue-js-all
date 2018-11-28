@@ -1,0 +1,9 @@
+.footer {
+  font-size: $fs-text;
+  text-align: center;
+  padding: 20px;
+  span {
+    color: $blue;
+    font-size: $fs-rest;
+  }
+}

@@ -1,0 +1,36 @@
+.cart {
+  padding: 20px;
+  h3 {
+    font-size: $fs-small-headers;
+    text-align: center;
+    border-bottom: 1px solid $gray;
+    padding: 6px;
+    margin-bottom: 20px;
+  }
+  .cart-item {
+    border: 1px solid $gray;
+    padding: 20px 10px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    margin-bottom: 6px;
+    button {
+      background-color: rgba(212, 82, 82, 0.37);
+      color: black;
+      text-transform: uppercase;
+      &:hover {
+        border: 1px solid rgb(62, 62, 201);
+      }
+    }
+  }
+  > p {
+    color: green;
+    padding-top: 20px;
+    text-align: right;
+  }
+  > button {
+    float: right;
+    padding: 4px;
+    margin-top: 6px;
+    background-color: aqua;
+  }
+}

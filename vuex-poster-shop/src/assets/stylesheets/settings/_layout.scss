@@ -1,0 +1,25 @@
+.root-app {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 60px calc(100vh - 120px) 60px;
+  grid-template-areas:
+    'header header'
+    'list shop'
+    'footer footer';
+
+  .header {
+    grid-area: header;
+  }
+
+  .product-list {
+    grid-area: list;
+  }
+
+  .cart {
+    grid-area: shop;
+  }
+
+  .footer {
+    grid-area: footer;
+  }
+}

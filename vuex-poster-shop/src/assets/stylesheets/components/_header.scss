@@ -1,0 +1,13 @@
+.header {
+  font-size: $fs-header;
+  text-align: center;
+  padding: 20px;
+  h2 {
+    border-bottom: 1px solid $gray;
+  }
+  small {
+    font-size: $fs-rest;
+    font-weight: bold;
+    font-style: italic;
+  }
+}

@@ -1,0 +1,25 @@
+.product-list {
+  padding: 20px;
+  h3 {
+    font-size: $fs-small-headers;
+    text-align: center;
+    border-bottom: 1px solid $gray;
+    padding: 6px;
+    margin-bottom: 20px;
+  }
+  .product {
+    border: 1px solid $gray;
+    padding: 20px 10px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    margin-bottom: 6px;
+    button {
+      background-color: $blue;
+      color: black;
+      text-transform: uppercase;
+      &:hover {
+        border: 1px solid rgb(62, 62, 201);
+      }
+    }
+  }
+}
