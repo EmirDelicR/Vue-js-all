@@ -1,12 +1,19 @@
 <template>
   <div class="search">
-    <form @submit.prevent="searchProducts(searchValue)">
+    <form
+      id="search-form"
+      @submit.prevent="searchProducts(searchValue)"
+    >
       <input
+        class="search"
         type="text"
         v-model="searchValue"
         placeholder="Search..."
       >
-      <button type="submit">Search</button>
+      <button
+        class="submit"
+        type="submit"
+      >Search</button>
     </form>
     <div
       v-if="loaderState"

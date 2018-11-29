@@ -16,7 +16,7 @@ import ProductList from '@/components/product/ProductList.vue'
 import ShoppingCart from '@/components/cart/ShoppingCart.vue'
 import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
-import Search from '@/components/search/search.vue'
+import Search from '@/components/search/Search.vue'
 
 export default {
   name: 'app',
