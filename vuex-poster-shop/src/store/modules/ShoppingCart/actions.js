@@ -1,15 +1,17 @@
 import shop from '@/api/shop'
 
 export default {
-  addProductToCart({ commit, state }, product) {
+  addProductToCart({ commit, state, rootState }, product) {
     let cartItem = state.cart.find(item => item.id === product.id)
-
+    let productItem = rootState.Products.products.find(
+      item => item.id === product.id,
+    )
     if (!cartItem) {
       commit('pushProductToCart', product)
     } else {
       commit('incrementCartItemQuantity', cartItem)
     }
-    commit('decrementProductInventory', product)
+    commit('decrementProductInventory', productItem)
   },
 
   removeProductFromCart({ commit, state, getters, rootState }, cartItem) {

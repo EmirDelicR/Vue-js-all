@@ -41,10 +41,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      productItems: 'productItems',
-      productCount: 'productCount',
       productPageNumber: 'productPageNumber',
-      pageSize: 'pageSize',
       pageCount: 'pageCount',
       paginatedData: 'paginatedData'
     }),

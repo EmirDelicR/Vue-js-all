@@ -32,7 +32,7 @@ export default {
   computed: {
     ...mapGetters({
       cartItems: 'cartItems',
-      cartTotal: 'cartTotal'
+      cartTotal: 'cartTotal',
     }),
     ...mapState({
       getCheckoutStatus: state => state.ShoppingCart.checkoutStatus
