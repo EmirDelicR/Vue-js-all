@@ -1,5 +1,6 @@
 .product-list {
   padding: 20px;
+
   h3 {
     font-size: $fs-small-headers;
     text-align: center;
@@ -7,19 +8,49 @@
     padding: 6px;
     margin-bottom: 20px;
   }
+
+  button {
+    width: 100px;
+    height: 28px;
+    font-size: 14px;
+  }
+
+  %button-style {
+    color: red;
+    font-weight: bold;
+  }
+
+  .prev::before {
+    content: '<';
+    padding-right: 6px;
+    @extend %button-style;
+  }
+
+  .next {
+    margin-left: 180px;
+    &::after {
+      content: '>';
+      padding-left: 16px;
+      @extend %button-style;
+    }
+  }
+
   .product {
     border: 1px solid $gray;
     padding: 20px 10px;
     display: grid;
     grid-template-columns: 2fr 1fr;
     margin-bottom: 6px;
+
     button {
       background-color: $blue;
       color: black;
       text-transform: uppercase;
+
       &:hover {
         border: 1px solid rgb(62, 62, 201);
       }
+
       &:disabled {
         opacity: 0.4;
         color: red;
