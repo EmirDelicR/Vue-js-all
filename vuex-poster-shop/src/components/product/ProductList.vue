@@ -9,20 +9,22 @@
 
       <product :product="item" />
     </div>
-    <button
-      class="prev"
-      :disabled="productPageNumber === 0"
-      @click="previousPage"
-    >
-      Previous
-    </button>
-    <button
-      class="next"
-      :disabled="productPageNumber >= pageCount"
-      @click="nextPage"
-    >
-      Next
-    </button>
+    <div class="pagination">
+      <button
+        class="prev"
+        :disabled="productPageNumber === 0"
+        @click="previousPage"
+      >
+        Previous
+      </button>
+      <button
+        class="next"
+        :disabled="productPageNumber >= pageCount"
+        @click="nextPage"
+      >
+        Next
+      </button>
+    </div>
   </div>
 </template>
 

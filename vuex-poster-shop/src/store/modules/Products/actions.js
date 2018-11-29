@@ -22,6 +22,26 @@ export default {
       .catch(error => console.log(error))
   },
 
+  /*
+  searchProducts({ commit, state }, value) {
+    commit('emptyProducts')
+    commit('setLoader', true)
+    const data = async () => {
+      let response
+      try {
+        response = await HTTP.get('gallery/search/?q=' + value)
+      } catch (error) {
+        console.log(error)
+      }
+      let DD = response.data
+      console.log(DD)
+      return
+    }
+    let dataElem = data()
+    console.log(dataElem)
+    return data
+  },
+*/
   nextProductPage({ commit }) {
     commit('incrementProductPageNumber')
   },

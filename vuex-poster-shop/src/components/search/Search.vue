@@ -28,7 +28,7 @@
       <p>Found
         <span>{{ productCount }}</span>
         results for search term
-        <span>{{ searchValue }}</span>
+        <span>{{ searchValue ? searchValue : 'cat' }}</span>
       </p>
     </div>
   </div>
@@ -56,6 +56,8 @@ export default {
   },
   created () {
     this.searchProducts('cat');
+    const data = this.searchProducts('cat');
+    // console.log(data)
   }
 
 

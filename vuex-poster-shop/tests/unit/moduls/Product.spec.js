@@ -1,19 +1,7 @@
 import ProductModule from '@/store/modules/Products'
+import mockAxios from '../mocks/axios'
 
 describe('Product mutations test', () => {
-  /* it('setProduct in Product mutations', () => {
-    let setProducts = ProductModule.mutations.setProducts
-    // mock state
-    const state = { products: [] }
-    const products = [{ id: 1, name: 'Test' }]
-
-    setProducts(state, products)
-
-    expect(state.products.length).toBe(1)
-    expect(state.products[0].id).toBe(1)
-    expect(state.products[0].name).toMatch('Test')
-  })
-*/
   it('decrementProductInventory in Product mutations', () => {
     let decrementProductInventory =
       ProductModule.mutations.decrementProductInventory
@@ -61,11 +49,13 @@ describe('Product getters test', () => {
     expect(products.length).toBe(3)
     expect(products[1].title).toMatch('Orange')
   })
-  /* it('productIsInStock in ProductsList getters', () => {
-    let productIsInStock = ProductListModule.getters.productIsInStock()
+})
 
-    expect(productIsInStock(state.products[0])).toBe(true)
-    expect(productIsInStock(state.products[1])).toBe(false)
+describe('Product actions test', () => {
+  it('searchProducts in Product actions', () => {
+    const productItems = ProductModule.actions.searchProducts
+    const products = productItems(state)
+    expect(products.length).toBe(3)
+    expect(products[1].title).toMatch('Orange')
   })
-  */
 })

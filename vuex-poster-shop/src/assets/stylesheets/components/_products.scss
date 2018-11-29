@@ -8,6 +8,9 @@
     padding: 6px;
     margin-bottom: 20px;
   }
+  .pagination {
+    text-align: center;
+  }
 
   button {
     width: 100px;
@@ -22,7 +25,7 @@
 
   .prev::before {
     content: '<';
-    padding-right: 6px;
+    padding-right: 2px;
     @extend %button-style;
   }
 
