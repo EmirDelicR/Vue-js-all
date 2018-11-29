@@ -1,7 +1,12 @@
 <template>
   <div class="product">
     <div>
-      <p>{{ product.title }}</p>
+      <a
+        :href="product.link"
+        target="_blank"
+      >
+        <p>{{ product.title }}</p>
+      </a>
       <p>Price: {{ product.price | currency }}</p>
       <p>In stock: {{ product.inventory }}</p>
     </div>

@@ -1,7 +1,9 @@
 import HTTP from '@/api/api'
 export default {
   searchProducts({ commit, state }, value) {
-    HTTP.get('gallery/search/?q=cats')
+    commit('emptyProducts')
+    commit('setLoader', true)
+    HTTP.get('gallery/search/?q=' + value)
       .then(response => {
         let data = response.data.data
         const products = data.map(item => {
@@ -15,7 +17,16 @@ export default {
           return product
         })
         commit('setProducts', products)
+        commit('setLoader', false)
       })
       .catch(error => console.log(error))
+  },
+
+  nextProductPage({ commit }) {
+    commit('incrementProductPageNumber')
+  },
+
+  previousProductPage({ commit }) {
+    commit('decrementProductPageNumber')
   },
 }
