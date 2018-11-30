@@ -7,6 +7,10 @@
     <rest />
     <hr />
     <grid />
+    <hr />
+    <flex />
+    <hr />
+    <nav-bar />
   </div>
 </template>
 
@@ -16,6 +20,7 @@ import MixinComponent from '@/components/MixinComponent.vue'
 import Rest from '@/components/RestScss.vue'
 import Grid from '@/components/Grid.vue'
 import Flex from '@/components/Flex.vue'
+import NavBar from '@/components/NavBar.vue'
 
 export default {
   name: 'app',
@@ -24,7 +29,8 @@ export default {
     MixinComponent,
     Rest,
     Grid,
-    Flex
+    Flex,
+    NavBar
   },
 }
 </script>

@@ -1,9 +1,147 @@
 /*
     Flex-box documentation
+    https://scrimba.com/playlist/pL65cJ
 
+    - set direction of flex
+      flex-direction: row; // row, column
+    - set content in flex-box
+      - horizontal align
+        justify-content: center; 
+        // flex-(start, end), center, space-(around, evenly, between)
+      - positioning items with margin
+        .class{ margin-left: auto} 
+    - flex property for responsive columns (add this to child elements .wrapper > div
+      flex: 1; // short for flex-(grow, shrink, basis)
+      // 1 is number of width if you set 2 it will grow 2x fast
+      // if you target element in way .wrapper > .class { flex: 1 }
+      // then you can target other element like .wrapper > .otherClass { flex: 2 }
+      // you can also target specific classes then use .class { flex: 1 }
+    - align items
+      align-items: stretch; flex-(start, end), center
+      // if you target specific class use align-self
+    - wrapping
+      flex-wrap: nowrap; // wrap
+    - flex grow, shrink, basis
+      flex: 1 2 1; // same as down 
+      flex-grow: 1; // extra space distribution
+      flex-shrink: 1; // width of element when shrink (number is how fast will shrink)
+      flex-basis: 0; // set basis width of element
+    - order
+      order: 1; // set the order of element 0 is default, (2, 3, 4...) 
+      
 */
 
 .flex {
   .wrapper {
+    border: 1px solid blue;
+    height: 120px;
+    font-size: 26px;
+    /*Start point*/
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    @for $i from 1 through 4 {
+      @debug #{$i};
+      @if ($i % 2 == 0) {
+        div:nth-child(#{$i}) {
+          background-color: red;
+        }
+      } @else {
+        div:nth-child(#{$i}) {
+          background-color: green;
+        }
+      }
+    }
+
+    div {
+      height: 60px;
+      width: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .search {
+      order: 2;
+    }
+
+    .about {
+      order: 1;
+    }
+    .logout {
+      order: 3;
+      margin-left: auto;
+      align-self: flex-start;
+    }
+  }
+
+  nav {
+    border: 1px solid red;
+    margin: 20px 0px;
+    background-color: aqua;
+
+    ul {
+      display: flex;
+
+      li {
+        padding: 10px;
+        text-align: center;
+        font-size: 2em;
+        color: #ffeead;
+        box-sizing: border-box;
+        background-color: #96ceb4;
+        list-style-type: none;
+        margin: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .logout {
+        margin-left: auto;
+      }
+      .search {
+        input {
+          background: #ff6e68;
+          border: 0;
+          width: 100%;
+          outline: 0;
+          background: transparent;
+          border-bottom: 1px solid #ffeead;
+          color: #ffeead;
+
+          &::placeholder {
+            color: #ffeead;
+          }
+
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+    }
+
+    @media all and (max-width: 600px) {
+      ul {
+        flex-wrap: wrap;
+
+        > li {
+          flex: 1 1 45%;
+        }
+        .logout {
+          margin-left: 6px;
+        }
+      }
+    }
+
+    @media all and (max-width: 400px) {
+      ul > li {
+        flex: 1 1 100%;
+      }
+      .search {
+        order: 1;
+      }
+    }
   }
 }

@@ -4,11 +4,27 @@
       <h1>CSS Flex</h1>
     </header>
     <div class="wrapper">
-      <div class="header">HEADER</div>
-      <div class="menu">MENU</div>
-      <div class="content">CONTENT</div>
-      <div class="footer">FOOTER</div>
+      <div class="home">Home</div>
+      <div class="search">Search</div>
+      <div class="about">About</div>
+      <div class="logout">Logout</div>
     </div>
+
+    <nav>
+      <ul>
+        <li>Home</li>
+        <li>Profile</li>
+        <li class="search">
+          <input
+            type="text"
+            class="search-input"
+            placeholder="Search"
+          >
+        </li>
+        <li class="logout">Logout</li>
+      </ul>
+    </nav>
+
   </div>
 </template>
 
