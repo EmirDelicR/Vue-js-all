@@ -1,7 +1,7 @@
 <template>
-  <div class="grid">
+  <div class="flex">
     <header>
-      <h1>CSS Grid</h1>
+      <h1>CSS Flex</h1>
     </header>
     <div class="wrapper">
       <div class="header">HEADER</div>
@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  name: 'Grid',
+  name: 'Flex',
 }
 </script>
 

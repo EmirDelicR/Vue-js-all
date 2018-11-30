@@ -1,35 +1,87 @@
+/*
+  Grid documentation (look also in code down)
+  https://scrimba.com/p/pWqLHa/cMQgGca
+  
+  - use auto-fit or (auto-fill - not in this case) to set up columns
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  - combine this with auto-rows
+    grid-auto-rows: 100px;
+  - look image gallery - for usage of grid-auto-flow
+    grid-auto-flow: dense
+  - justify and align content (this apply to wrapper)
+    -(horizontal align)
+     justify-content: center; // start, end, center, space-(between, evenly, around) 
+    -(vertical align)
+     align-content: end; 
+  - justify and align items (this apply to elements inside wrapper)
+    -(horizontal align)
+     justify-items: center; // start, end, center, space-(between, evenly, around) 
+    -(vertical align)
+     align-items: end; 
+
+  https://css-tricks.com/snippets/css/complete-guide-grid/
+  https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout
+  https://learncssgrid.com/
+*/
+
 .grid {
-  // https://css-tricks.com/snippets/css/complete-guide-grid/
-  // https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout
-  // https://learncssgrid.com/
   .wrapper {
     background-color: cornflowerblue;
     color: cornsilk;
 
     /* Start point */
     display: grid;
-    /* fr is fraction unit */
-    // grid-template-columns: 1fr 1fr 1fr;
-    // can be write like
-    grid-template-columns: repeat(3, 1fr);
-    // grid-template-rows: 3fr 1fr;
-    grid-auto-rows: minmax(20px, auto);
-    // grid-column-gap: 10px;
-    // grid-row-gap: 10px;
+
+    /* fr is fraction unit 
+       grid-template-columns: 1fr 1fr 1fr;
+       can be write like
+       grid-template-columns: repeat(3, 1fr);
+    */
+    grid-template-columns: repeat(6, 2fr);
+
+    /* grid-template-rows: 3fr 1fr; */
+    /* grid-auto-rows: minmax(60px, auto); */
+    grid-template-rows: 60px auto 60px;
+
+    /* Template area use to make a matrix of element
+       Add names as you wish: h - short for header ... 
+       Need to match number form (this case 6)
+       grid-template-columns: repeat(6, 2fr); 
+       . result in empty cell
+    */
+    grid-template-areas:
+      'm h h h h h'
+      'm c c c c c'
+      '. f f f f f';
+    /* 
+      grid-column-gap: 10px;
+      grid-row-gap: 10px;
+      short grid-gap: 10px;
+    */
+    grid-gap: 3px;
+
     div {
       background-color: green;
       color: black;
-    }
-    .box1 {
-      grid-column-start: 1;
-      grid-column-end: 4;
+      text-align: center;
     }
 
-    .box2 {
-      grid-column-start: 1;
-      grid-column-end: 3;
-      grid-row-start: 2;
-      grid-row-end: 5;
+    .header {
+      grid-area: h;
+    }
+
+    .menu {
+      height: auto;
+      grid-area: m;
+    }
+
+    .content {
+      height: 120px;
+      grid-area: c;
+    }
+
+    .footer {
+      grid-area: f;
     }
   }
 }

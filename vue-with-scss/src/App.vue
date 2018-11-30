@@ -15,6 +15,7 @@ import Nesting from '@/components/Nesting.vue'
 import MixinComponent from '@/components/MixinComponent.vue'
 import Rest from '@/components/RestScss.vue'
 import Grid from '@/components/Grid.vue'
+import Flex from '@/components/Flex.vue'
 
 export default {
   name: 'app',
@@ -22,11 +23,11 @@ export default {
     Nesting,
     MixinComponent,
     Rest,
-    Grid
+    Grid,
+    Flex
   },
 }
 </script>
 
 <style lang="scss" src="./assets/stylesheets/application.scss">
-
 </style>
