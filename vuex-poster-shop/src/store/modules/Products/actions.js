@@ -1,5 +1,20 @@
-import HTTP from '@/api/api'
+// import { HTTP } from '@/api/setup'
+import { getApiData } from '@/api/api'
+import utilities from '@/utilities/functions'
+
 export default {
+  searchProducts({ commit, state }, value) {
+    getApiData(value).then(res => {
+      commit('emptyProducts')
+      commit('setLoader', true)
+      const data = res.data.data
+      const products = utilities.mapProducts(data)
+      commit('setProducts', products)
+      commit('setLoader', false)
+    })
+  },
+
+  /*
   searchProducts({ commit, state }, value) {
     commit('emptyProducts')
     commit('setLoader', true)
@@ -20,26 +35,6 @@ export default {
         commit('setLoader', false)
       })
       .catch(error => console.log(error))
-  },
-
-  /*
-  searchProducts({ commit, state }, value) {
-    commit('emptyProducts')
-    commit('setLoader', true)
-    const data = async () => {
-      let response
-      try {
-        response = await HTTP.get('gallery/search/?q=' + value)
-      } catch (error) {
-        console.log(error)
-      }
-      let DD = response.data
-      console.log(DD)
-      return
-    }
-    let dataElem = data()
-    console.log(dataElem)
-    return data
   },
 */
   nextProductPage({ commit }) {

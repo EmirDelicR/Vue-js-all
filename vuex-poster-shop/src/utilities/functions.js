@@ -14,4 +14,18 @@ export default {
       .repeat(2)
     return parseFloat(random).toString(36)
   },
+
+  mapProducts(data) {
+    const products = data.map(item => {
+      const product = {
+        id: item.id,
+        link: item.link,
+        title: item.title,
+        price: this.randomNumber(5, 10),
+        inventory: this.randomNumber(2, 20),
+      }
+      return product
+    })
+    return products
+  },
 }

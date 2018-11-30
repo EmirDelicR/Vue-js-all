@@ -1,9 +1,13 @@
-import axios from 'axios'
+import { HTTP } from './setup'
 
-export default axios.create({
-  baseURL: process.env.VUE_APP_API_BASE_URL,
-  timeout: 5000,
-  headers: {
-    Authorization: 'Client-ID ' + process.env.VUE_APP_CLIENT_ID,
-  },
-})
+async function getApiData(value) {
+  let result
+  try {
+    result = await HTTP.get('gallery/search/?q=' + value)
+  } catch (error) {
+    result = error
+  }
+  return result
+}
+
+export { getApiData }
