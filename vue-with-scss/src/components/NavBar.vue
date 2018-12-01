@@ -1,11 +1,15 @@
 <template>
+
   <div class="nav">
     <header>
       <h1>CSS Burger nav bar</h1>
     </header>
 
     <nav>
-      <div class="main-nav">
+      <div
+        class="main-nav"
+        :class="[{ 'active-display': checked }, main]"
+      >
         <ul class="main-nav-menu">
           <li><a href="#About-Us">Home</a></li>
           <li><a href="#About-Us">About</a></li>
@@ -18,6 +22,9 @@
         <input
           type="checkbox"
           id="inp"
+          name="inp"
+          class="check-input"
+          @input="check"
         />
         <label for="inp">
           <div class="diagonal part-1"></div>
@@ -35,13 +42,13 @@ export default {
   name: 'NavBar',
   data () {
     return {
-      checked: false
+      checked: false,
+      main: 'main-nav'
     }
   },
   methods: {
     check () {
       this.checked = !this.checked;
-      console.log(this.checked)
     }
   }
 }
