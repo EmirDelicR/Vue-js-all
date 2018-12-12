@@ -1,0 +1,19 @@
+.main-nav {
+  padding: 20px;
+  background-color: $oxford-blue;
+  span {
+    font-size: $fs-logo;
+    padding: 0 10px;
+    color: $bondi-blue;
+    border-bottom: 2px solid $bondi-blue;
+  }
+  a {
+    color: $winter-wizard;
+    font-size: $fs-small-headers;
+    padding: 16px;
+    text-decoration: none;
+    &:hover {
+      color: $bondi-blue;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+.main {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 60px auto 60px;
+  grid-template-areas:
+    'header header'
+    'movie filter'
+    'footer footer';
+
+  .header {
+    grid-area: header;
+  }
+
+  .movies-section {
+    grid-area: movie;
+  }
+
+  .movies-filter-section {
+    grid-area: filter;
+  }
+
+  .footer {
+    grid-area: footer;
+  }
+}

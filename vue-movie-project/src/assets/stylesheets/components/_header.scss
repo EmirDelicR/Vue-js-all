@@ -1,0 +1,10 @@
+.header {
+  font-size: $fs-header;
+  text-align: center;
+  padding: 10px;
+  background-color: $bondi-blue;
+  color: $oxford-dark-blue;
+  ul {
+    display: flex;
+  }
+}
