@@ -5,6 +5,11 @@ import store from './store/'
 
 Vue.config.productionTip = false
 Vue.use(require('vue-moment'))
+Vue.directive('tooltip', {
+  bind(el, bindings) {
+    console.log(el)
+  },
+})
 
 new Vue({
   router,

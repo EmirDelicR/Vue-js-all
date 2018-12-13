@@ -16,7 +16,7 @@
             :key="sessions.id"
           >
             {{ sessions.time | moment("h:mm A")}}
-            <span>{{ sessions.seats }}</span>
+            <span class="tooltip">Seats: {{ sessions.seats }}</span>
           </span>
         </div>
 

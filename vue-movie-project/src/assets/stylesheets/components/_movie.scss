@@ -43,10 +43,25 @@
         .time {
           border: 1px solid red;
           text-align: center;
-          width: 20%;
+          width: 10%;
           padding: 10px;
           margin-right: 6px;
           margin-bottom: 6px;
+          position: relative;
+          .tooltip {
+            display: none;
+          }
+
+          &:hover {
+            .tooltip {
+              position: absolute;
+              padding: 6px;
+              top: 40px;
+              display: block;
+              border: 1px solid yellow;
+              border-radius: 10%;
+            }
+          }
         }
       }
     }

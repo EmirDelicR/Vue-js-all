@@ -6,5 +6,15 @@
   color: $oxford-dark-blue;
   ul {
     display: flex;
+    li {
+      border: 1px solid $oxford-dark-blue;
+      width: 10%;
+      padding: 10px;
+      margin: 0 20px;
+      &:hover {
+        background-color: $winter-wizard;
+        cursor: pointer;
+      }
+    }
   }
 }
