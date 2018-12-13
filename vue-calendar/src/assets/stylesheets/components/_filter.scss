@@ -1,0 +1,65 @@
+.movies-filter-section {
+  padding: 20px;
+  background-color: $oxford-blue;
+  color: $winter-wizard;
+
+  h2 {
+    font-size: $fs-small-headers;
+    border-bottom: 2px solid $winter-wizard;
+  }
+
+  .filter-checkbox {
+    color: $alto;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    margin-right: 1rem;
+    display: flex;
+    flex-direction: row;
+
+    @media screen and (max-width: $break-small) {
+      width: 150px;
+    }
+
+    &:hover {
+      color: $white;
+
+      .checkbox {
+        border-color: $white;
+      }
+    }
+
+    &.active {
+      color: $white;
+
+      .checkbox::after {
+        content: '';
+        border-color: $white;
+        background-color: $sunshade;
+        position: absolute;
+        width: 14px;
+        height: 14px;
+        left: 3px;
+        top: 3px;
+        border-radius: 2px;
+      }
+    }
+
+    .checkbox {
+      display: inline-block;
+      position: relative;
+      width: 20px;
+      height: 20px;
+      border: 1px solid $alto;
+      border-radius: 3px;
+      user-select: none;
+      box-shadow: $filter-shadow;
+    }
+
+    .filter-title {
+      user-select: none;
+      vertical-align: top;
+      line-height: 1.6rem;
+      padding-left: 0.45rem;
+    }
+  }
+}
