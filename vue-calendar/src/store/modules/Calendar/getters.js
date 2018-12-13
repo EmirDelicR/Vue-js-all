@@ -1,5 +1,13 @@
 export default {
-  getMovies(state) {
-    return state.movies
+  getMonth(state) {
+    return state.month
+  },
+
+  getYear(state) {
+    return state.year
+  },
+
+  getDaysName(state) {
+    return state.daysNames
   },
 }

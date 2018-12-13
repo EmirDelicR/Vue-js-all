@@ -1,0 +1,76 @@
+.calendar-main {
+  %calendar-row {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  %calendar-cell {
+    width: 100%;
+    padding: 0.5rem;
+  }
+
+  .day-bar {
+    @extend %calendar-row;
+    div {
+      @extend %calendar-cell;
+    }
+  }
+
+  .calendar {
+    background-color: white;
+
+    .cl-week {
+      @extend %calendar-row;
+      .cl-day {
+        overflow: hidden;
+        font-weight: bold;
+        @extend %calendar-cell;
+        height: 100px;
+        user-select: none;
+        cursor: default;
+        border-left: $calendar-border;
+        border-top: $calendar-border;
+
+        &:last-child {
+          border-right: $calendar-border;
+        }
+
+        &.past {
+          opacity: 0.6;
+        }
+
+        &.not-current-month {
+          color: $alto;
+        }
+
+        &.today {
+          background-color: $buttermilk;
+        }
+
+        &.active {
+          background-color: $pink;
+        }
+
+        .event-list {
+          font-size: 0.8rem;
+          color: $vista-blue;
+          font-weight: bold;
+          list-style: none;
+          padding: 0;
+          margin: 0.5rem 0 0.5rem 0;
+
+          li {
+            white-space: nowrap;
+          }
+        }
+      }
+
+      &:last-child {
+        .cl-day {
+          border-bottom: $calendar-border;
+        }
+      }
+    }
+  }
+}

@@ -8,5 +8,4 @@
   </div>
 </template>
 
-<style lang="scss">
-</style>
+<style lang="scss" src="./assets/stylesheets/application.scss">
