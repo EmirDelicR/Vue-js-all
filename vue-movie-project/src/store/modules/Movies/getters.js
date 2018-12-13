@@ -1,4 +1,8 @@
 export default {
+  getMovies(state) {
+    return state.movies
+  },
+
   getFilteredMovies(state, getters) {
     const filters = getters.getFilters
 
