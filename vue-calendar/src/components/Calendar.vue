@@ -1,5 +1,14 @@
 <template>
   <div class="calendar-main">
+    <div class="header">
+      <div>
+        <h1>Calendar</h1>
+      </div>
+      <div>
+        <calendar-month />
+      </div>
+    </div>
+
     <div class="day-bar">
       <div
         v-for="name in getDaysName"
@@ -7,6 +16,7 @@
       > {{ name}}
       </div>
     </div>
+
     <div class="calendar">
       <div
         class="cl-week"
@@ -20,17 +30,24 @@
         />
       </div>
     </div>
+
+    <calendar-event />
+
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
 import CalendarDay from './CalendarDay.vue'
+import CalendarMonth from './CalendarMonth.vue'
+import CalendarEvent from './CalendarEvent.vue'
 
 export default {
   name: 'Calendar',
   components: {
-    CalendarDay
+    CalendarDay,
+    CalendarMonth,
+    CalendarEvent
   },
   computed: {
     ...mapGetters({

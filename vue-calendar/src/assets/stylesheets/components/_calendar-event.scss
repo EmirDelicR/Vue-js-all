@@ -1,0 +1,80 @@
+.calendar-event {
+  $event-form-width: 300px;
+
+  display: none;
+  box-shadow: 0 2px 4px $alto;
+  position: fixed;
+  width: $event-form-width;
+  transform: translate(-50%, -100%);
+  z-index: 10;
+  padding: 1rem;
+  background-color: white;
+  border: 1px $alto solid;
+
+  &.active {
+    display: flex;
+  }
+
+  flex-direction: column;
+  align-content: space-between;
+
+  h4 {
+    margin: 0 0 0.75rem 0;
+    color: $dusty-gray;
+    font-weight: normal;
+    font-size: 1.15rem;
+  }
+
+  p {
+    font-size: 0.85rem;
+    margin: 0 0 0.85rem 0;
+  }
+
+  & > * {
+    width: 100%;
+  }
+  .text {
+    input[type='text'] {
+      width: calc(100% - 0.75rem);
+      padding: 0.25rem;
+      font-size: 0.75rem;
+    }
+    margin-bottom: 0.75rem;
+  }
+  .buttons {
+    text-align: right;
+    button {
+      $button-col: $pickled-bluewood;
+      padding: 0.5rem;
+      background-color: $button-col;
+      border: 1px solid darken($button-col, 5%);
+      font-weight: bold;
+      border-radius: 2px;
+      color: white;
+      &:focus {
+        outline: none;
+      }
+      &:hover {
+        background-color: lighten($button-col, 4%);
+        border: 1px solid $button-col;
+      }
+    }
+  }
+  .close-btn {
+    margin: 0;
+    padding: 0;
+    font-size: 1.25rem;
+    background-color: white;
+    position: absolute;
+    border: none;
+    width: 20px;
+    font-weight: bold;
+    color: #666;
+    right: 0.6rem;
+    top: 0.6rem;
+    cursor: pointer;
+    &:focus {
+      outline: none;
+    }
+  }
+}

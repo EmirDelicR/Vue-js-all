@@ -1,3 +1,5 @@
+import { constants } from '@/utilities/constants'
+
 export default {
   getMonth(state) {
     return state.month
@@ -8,6 +10,22 @@ export default {
   },
 
   getDaysName(state) {
-    return state.daysNames
+    return constants.DAY_NAMES
+  },
+
+  getMousePositionX(state) {
+    return state.mousePositionX
+  },
+
+  getMousePositionY(state) {
+    return state.mousePositionY
+  },
+
+  getEventStatus(state) {
+    return state.eventStatus
+  },
+
+  getEvents(state) {
+    return state.events
   },
 }

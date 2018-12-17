@@ -1,8 +1,20 @@
 <template>
-  <div :class="dayClass">{{ day.format('D') }}</div>
+  <div
+    :class="dayClass"
+    @click="showEvent"
+  >
+    {{ day.format('D') }}
+    <ul class="event-list">
+      <li
+        v-for="(event, index) in filteredEvents"
+        :key="index"
+      >{{event.description}}</li>
+    </ul>
+  </div>
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
 export default {
   name: "CalendarDay",
   props: {
@@ -11,6 +23,9 @@ export default {
     }
   },
   computed: {
+    ...mapGetters({
+      events: 'getEvents'
+    }),
     dayClass () {
       let today = this.day.isSame(this.moment(), 'day')
       return {
@@ -18,7 +33,17 @@ export default {
         today,
         past: this.day.isSameOrBefore(this.moment(), 'day') && !today
       }
+    },
+    filteredEvents () {
+      return this.events.filter(event => {
+        return this.moment(event.date, 'YYYY-MM-DD').isSame(this.day, 'day')
+      })
     }
+  },
+  methods: {
+    ...mapActions({
+      showEvent: 'showEvent'
+    })
   }
 
 }

@@ -4,9 +4,19 @@ import actions from './actions'
 
 export default {
   state: {
-    month: 12,
+    month: 1,
     year: 2018,
-    daysNames: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+    mousePositionX: 0,
+    mousePositionY: 0,
+    eventStatus: false,
+    events: [
+      {
+        description: 'RR event',
+        date: '2018-12-13',
+      },
+      { description: 'SS event', date: '2018-12-14' },
+      { description: 'SS event', date: '2018-12-15' },
+    ],
   },
   mutations,
   getters,
