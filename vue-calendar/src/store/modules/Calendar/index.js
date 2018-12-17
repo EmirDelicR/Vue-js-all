@@ -9,6 +9,7 @@ export default {
     mousePositionX: 0,
     mousePositionY: 0,
     eventStatus: false,
+    eventDate: null,
     events: [
       {
         description: 'RR event',

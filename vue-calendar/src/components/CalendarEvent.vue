@@ -4,16 +4,22 @@
     :style="{ top: positionY + 'px', left: positionX + 'px'}"
   >
     <h4>Add an Event</h4>
-
+    <p>{{ formatEventDate }}</p>
     <div class="text">
       <input
+        @keyup.enter="createDayEvent"
+        v-focus
         type="text"
         v-model="description"
+        placeholder="Add Event"
       />
     </div>
 
     <div class="buttons">
-      <button @click="createEvent">Create</button>
+      <button
+        :disabled="isDisabled"
+        @click="createDayEvent"
+      >Create</button>
     </div>
 
     <button
@@ -29,21 +35,38 @@ export default {
   name: "CalendarEvent",
   data () {
     return {
-      description: ''
+      description: '',
     }
   },
   computed: {
     ...mapGetters({
       positionX: 'getMousePositionX',
       positionY: 'getMousePositionY',
-      eventStatus: 'getEventStatus'
+      eventStatus: 'getEventStatus',
+      eventDate: 'getEventDate'
     }),
+    isDisabled () {
+      if (this.description) {
+        return false;
+      }
+      return true
+    },
+    formatEventDate () {
+      if (this.eventDate) {
+        return this.moment(this.eventDate).format('dddd, MMM Do')
+      }
+      return this.moment().format('dddd, MMM Do')
+    }
   },
   methods: {
     ...mapActions({
       closeEvent: 'closeEvent',
       createEvent: 'createEvent'
-    })
+    }),
+    createDayEvent () {
+      this.createEvent(this.description)
+      this.description = ''
+    }
   }
 
 }

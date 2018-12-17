@@ -6,6 +6,12 @@ import './registerServiceWorker'
 
 Vue.config.productionTip = false
 
+Vue.directive('focus', {
+  update(el) {
+    el.focus()
+  },
+})
+
 new Vue({
   router,
   store,

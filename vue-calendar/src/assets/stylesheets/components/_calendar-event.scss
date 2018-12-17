@@ -58,6 +58,9 @@
         background-color: lighten($button-col, 4%);
         border: 1px solid $button-col;
       }
+      &:disabled {
+        opacity: 0.3;
+      }
     }
   }
   .close-btn {

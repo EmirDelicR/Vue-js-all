@@ -1,7 +1,8 @@
 import { constants } from '@/utilities/constants'
 
 export default {
-  incrementMonth({ commit, state }) {
+  incrementMonth({ commit, state, dispatch }) {
+    dispatch('closeEvent')
     if (state.month < constants.MAX_MONTH_NUMBER) {
       commit('incrementMonth')
     } else {
@@ -10,7 +11,8 @@ export default {
     }
   },
 
-  decrementMonth({ commit, state }) {
+  decrementMonth({ commit, state, dispatch }) {
+    dispatch('closeEvent')
     if (state.month > constants.MIN_MONTH_NUMBER) {
       commit('decrementMonth')
     } else {
@@ -21,11 +23,12 @@ export default {
 
   showEvent({ commit }, payload) {
     const mouseCoordinates = {
-      x: payload.clientX,
-      y: payload.clientY,
+      x: event.clientX,
+      y: event.clientY,
     }
     commit('setMouseCoordinates', mouseCoordinates)
     commit('setEventStatus', true)
+    commit('setEventDate', payload)
   },
 
   closeEvent({ commit }) {
@@ -35,9 +38,15 @@ export default {
     }
     commit('setMouseCoordinates', mouseCoordinates)
     commit('setEventStatus', false)
+    commit('setEventDate', null)
   },
 
-  createEvent({ commit, state }) {
-    commit('setEvent')
+  createEvent({ commit, state, dispatch }, payload) {
+    const obj = {
+      description: payload,
+      date: state.eventDate,
+    }
+    commit('setEvent', obj)
+    dispatch('closeEvent')
   },
 }

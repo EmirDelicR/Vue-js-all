@@ -32,6 +32,10 @@ export default {
     state.eventStatus = payload
   },
 
+  setEventDate(state, payload) {
+    state.eventDate = payload
+  },
+
   setEvent(state, payload) {
     state.events.push(payload)
   },

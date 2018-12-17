@@ -1,7 +1,7 @@
 <template>
   <div
     :class="dayClass"
-    @click="showEvent"
+    @click="showEvent(day.format())"
   >
     {{ day.format('D') }}
     <ul class="event-list">
@@ -24,14 +24,16 @@ export default {
   },
   computed: {
     ...mapGetters({
-      events: 'getEvents'
+      events: 'getEvents',
+      eventDate: 'getEventDate'
     }),
     dayClass () {
       let today = this.day.isSame(this.moment(), 'day')
       return {
         'cl-day': true,
         today,
-        past: this.day.isSameOrBefore(this.moment(), 'day') && !today
+        past: this.day.isSameOrBefore(this.moment(), 'day') && !today,
+        active: this.moment(this.eventDate).isSame(this.day, 'day')
       }
     },
     filteredEvents () {

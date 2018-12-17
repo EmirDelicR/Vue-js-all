@@ -28,4 +28,8 @@ export default {
   getEvents(state) {
     return state.events
   },
+
+  getEventDate(state) {
+    return state.eventDate
+  },
 }
