@@ -1,17 +1,11 @@
 <template>
   <div class="home">
-    <calendar />
+    Home page
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import Calendar from '@/components/Calendar.vue'
-
 export default {
   name: 'home',
-  components: {
-    Calendar
-  }
 }
 </script>

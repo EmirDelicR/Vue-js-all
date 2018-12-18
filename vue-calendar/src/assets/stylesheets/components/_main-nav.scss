@@ -1,11 +1,33 @@
 .main-nav {
   padding: 20px;
-  background-color: $oxford-blue;
+  background-color: $alice-blue;
+  ul {
+    display: flex;
+    font-size: $fs-nav;
+    height: 40px;
+    li {
+      padding: 5px 20px;
+      cursor: pointer;
+      color: $blue-jeans;
+      &:hover {
+        color: $sky-blue;
+        border-bottom: 2px solid $sky-blue;
+      }
+      &.router-link-active {
+        color: $bdazzeld-blue;
+      }
+    }
+    li:last-child {
+      margin-left: auto;
+    }
+  }
+
+  /*
   span {
     font-size: $fs-logo;
     padding: 0 10px;
-    color: $bondi-blue;
-    border-bottom: 2px solid $bondi-blue;
+    color: $blue-jeans;
+    border-bottom: 2px solid $blue-jeans;
   }
   a {
     color: $winter-wizard;
@@ -13,7 +35,8 @@
     padding: 16px;
     text-decoration: none;
     &:hover {
-      color: $bondi-blue;
+      color: $blue-jeans;
     }
   }
+  */
 }

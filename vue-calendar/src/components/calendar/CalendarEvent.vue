@@ -46,16 +46,14 @@ export default {
       eventDate: 'getEventDate'
     }),
     isDisabled () {
-      if (this.description) {
-        return false;
-      }
-      return true
+      return (this.description) ? false : true
     },
     formatEventDate () {
+      let date = this.moment().format('dddd, MMM Do')
       if (this.eventDate) {
-        return this.moment(this.eventDate).format('dddd, MMM Do')
+        date = this.moment(this.eventDate).format('dddd, MMM Do')
       }
-      return this.moment().format('dddd, MMM Do')
+      return date
     }
   },
   methods: {

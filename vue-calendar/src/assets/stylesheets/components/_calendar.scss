@@ -17,40 +17,39 @@
     align-items: flex-end;
     font-size: $fs-header;
 
-    div:first-child {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      margin: 1rem 0;
-      img {
-        width: 50px;
-        height: 50px;
-      }
+    .logo {
+      color: $bdazzeld-blue;
+      padding: 10px;
       h1 {
         margin: 0 0 0 0.5rem;
-        color: $pickled-bluewood;
         padding-top: 7px;
       }
     }
 
-    div:last-child {
+    .tool-bar {
       font-weight: bold;
-      button {
-        color: $dusty-gray;
-        font-size: 1rem;
-        padding: 0;
-        width: 20px;
-        background-color: white;
-        user-select: none;
-        border: 1px solid $alto;
-        border-radius: 2px;
-        margin-left: 0.25rem;
-        &:focus {
-          outline: none;
-        }
-        &:hover {
-          color: $pickled-bluewood;
-          box-shadow: 0 2px 2px $alto;
+
+      .cl-month {
+        color: $khaki;
+        display: flex;
+        padding: 6px;
+        button {
+          color: $dusty-gray;
+          font-size: 1rem;
+          padding: 0;
+          width: 20px;
+          background-color: white;
+          user-select: none;
+          border: 1px solid $alto;
+          border-radius: 2px;
+          margin-left: 0.5rem;
+          &:focus {
+            outline: none;
+          }
+          &:hover {
+            color: $pickled-bluewood;
+            box-shadow: 0 2px 2px $alto;
+          }
         }
       }
     }

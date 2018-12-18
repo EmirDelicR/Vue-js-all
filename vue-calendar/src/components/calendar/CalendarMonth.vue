@@ -25,7 +25,8 @@ export default {
     }),
     formatedDate () {
       let day = `${this.getYear}-${this.getMonth}`
-      return this.moment(day, 'YYYY-M').format('MMMM YYYY')
+      let date = this.moment(day, 'YYYY-M').format('MMMM YYYY')
+      return date
     }
   }
 

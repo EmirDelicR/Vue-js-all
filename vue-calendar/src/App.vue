@@ -1,16 +1,18 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+    <nav-bar />
     <router-view />
   </div>
 </template>
 
 <script>
 import { mapMutations } from 'vuex'
+import NavBar from '@/components/main/NavBar.vue'
+
 export default {
+  components: {
+    NavBar
+  },
   methods: {
     ...mapMutations({
       setCurrentMonth: 'setCurrentMonth',
