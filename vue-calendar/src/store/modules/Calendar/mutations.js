@@ -1,3 +1,4 @@
+import ls from '@/utilities/localStorage'
 export default {
   setCurrentMonth(state, payload) {
     state.month = payload
@@ -38,5 +39,7 @@ export default {
 
   setEvent(state, payload) {
     state.events.push(payload)
+    ls.clear()
+    ls.setItem('events', JSON.stringify(state.events, null, 2))
   },
 }

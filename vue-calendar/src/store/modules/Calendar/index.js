@@ -1,6 +1,7 @@
 import mutations from './mutations'
 import getters from './getters'
 import actions from './actions'
+import data from '@/JSON/calendar.json'
 
 export default {
   state: {
@@ -10,14 +11,7 @@ export default {
     mousePositionY: 0,
     eventStatus: false,
     eventDate: null,
-    events: [
-      {
-        description: 'RR event',
-        date: '2018-12-13',
-      },
-      { description: 'SS event', date: '2018-12-14' },
-      { description: 'SS event', date: '2018-12-15' },
-    ],
+    events: data,
   },
   mutations,
   getters,

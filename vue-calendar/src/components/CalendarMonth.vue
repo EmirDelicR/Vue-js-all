@@ -3,6 +3,7 @@
     <div>{{ formatedDate }}</div>
     <button @click="decrementMonth">-</button>
     <button @click="incrementMonth">+</button>
+    <button @click="printData">&#128424;</button>
   </div>
 </template>
 
@@ -13,7 +14,8 @@ export default {
   methods: {
     ...mapActions({
       decrementMonth: 'decrementMonth',
-      incrementMonth: 'incrementMonth'
+      incrementMonth: 'incrementMonth',
+      printData: 'printData',
     }),
   },
   computed: {

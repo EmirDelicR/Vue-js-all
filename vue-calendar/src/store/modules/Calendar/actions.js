@@ -1,4 +1,5 @@
 import { constants } from '@/utilities/constants'
+import ls from '@/utilities/localStorage'
 
 export default {
   incrementMonth({ commit, state, dispatch }) {
@@ -48,5 +49,10 @@ export default {
     }
     commit('setEvent', obj)
     dispatch('closeEvent')
+  },
+
+  printData({ state }) {
+    const data = localStorage.getItem('events')
+    console.log(data)
   },
 }
