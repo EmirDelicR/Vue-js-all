@@ -1,8 +1,38 @@
 [
   {
-    "description": "RR event",
-    "date": "2018-12-13"
+    "description": "Vue-git",
+    "date": "2019-01-02T00:00:00Z"
   },
-  { "description": "SS event", "date": "2018-12-14" },
-  { "description": "SS event", "date": "2018-12-15" }
+  {
+    "description": "- shopping cart",
+    "date": "2019-01-02T00:00:00Z"
+  },
+  {
+    "description": "Java-Script",
+    "date": "2019-01-14T00:00:00Z"
+  },
+  {
+    "description": "Junior-to-Senior",
+    "date": "2019-01-14T00:00:00Z"
+  },
+  {
+    "description": "Java-Script",
+    "date": "2019-01-21T00:00:00Z"
+  },
+  {
+    "description": "- second-curse ",
+    "date": "2019-01-21T00:00:00Z"
+  },
+  {
+    "description": "TypeScript",
+    "date": "2019-01-29T00:00:00Z"
+  },
+  {
+    "description": "- Udemy course",
+    "date": "2019-01-29T00:00:00Z"
+  },
+  {
+    "description": "Node.js",
+    "date": "2019-02-12T00:00:00Z"
+  }
 ]
