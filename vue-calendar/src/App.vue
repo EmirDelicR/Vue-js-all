@@ -2,16 +2,19 @@
   <div id="app">
     <nav-bar />
     <router-view />
+    <app-footer />
   </div>
 </template>
 
 <script>
 import { mapMutations } from 'vuex'
 import NavBar from '@/components/main/NavBar.vue'
+import AppFooter from '@/components/main/Footer.vue'
 
 export default {
   components: {
-    NavBar
+    NavBar,
+    AppFooter
   },
   methods: {
     ...mapMutations({
