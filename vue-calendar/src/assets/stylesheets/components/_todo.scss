@@ -1,0 +1,112 @@
+.todo-wrapp {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: auto 40%;
+  grid-template-areas:
+    'header header'
+    'todo add'
+    'completed add';
+
+  .task-header {
+    grid-area: header;
+    h1 {
+      color: $bdazzeld-blue;
+      padding: 10px;
+      margin: 0 0 0 0.5rem;
+      padding-top: 7px;
+      font-size: 28px;
+      border-bottom: 1px solid #ddd;
+      text-align: center;
+    }
+  }
+
+  %task-h {
+    text-align: center;
+    font-weight: bold;
+    span {
+      font-size: 24px;
+      margin-right: 10px;
+    }
+  }
+
+  %task-layout {
+    margin: 8px 0;
+    padding: 10px;
+    display: flex;
+    .right {
+      margin-left: auto;
+    }
+    span {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .todo-task {
+    grid-area: todo;
+    padding: 10px;
+    margin: 10px 20px;
+
+    .tasks-header {
+      @extend %task-h;
+    }
+
+    .task {
+      @extend %task-layout;
+      background: lightgoldenrodyellow;
+    }
+  }
+
+  .completed-task {
+    grid-area: completed;
+    padding: 10px;
+    margin: 10px 20px;
+    .tasks-header {
+      @extend %task-h;
+    }
+
+    .task {
+      @extend %task-layout;
+      background: lightgreen;
+    }
+  }
+
+  .add-task {
+    grid-area: add;
+    padding: 10px;
+    margin: 10px 20px;
+
+    .form-header {
+      border-bottom: 1px solid #ddd;
+      margin-bottom: 6px;
+      color: $bdazzeld-blue;
+      font-size: 24px;
+    }
+
+    input[type='text'] {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    button {
+      width: 40%;
+      background-color: #4caf50;
+      color: white;
+      padding: 8px 10px;
+      margin: 8px 4px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  }
+}
