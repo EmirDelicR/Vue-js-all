@@ -5,7 +5,7 @@
         <input
           type="checkbox"
           name="task"
-          v-on:click="$parent.toggleDone($event, task.id)"
+          @click.prevent="switchState(task.id)"
           :checked="task.completed"
         >
         <label>{{ task.name }}<span class="description"> {{ task.description }}</span></label>
@@ -25,13 +25,19 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 export default {
   props: {
     task: {
       type: Object,
       required: true
     }
-  }
+  },
+  methods: {
+    ...mapActions({
+      switchState: 'switchState'
+    }),
+  },
 }
 </script>
 
