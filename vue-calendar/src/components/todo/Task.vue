@@ -14,11 +14,11 @@
     <div class="right">
       <span
         class="pencil"
-        v-on:click="$parent.editTask($event, task.id)"
+        @click.prevent="editTask(task.id)"
       >&#x270E;</span>
       <span
         class="trash"
-        v-on:click="$parent.deleteTask($event, task.id)"
+        @click.prevent="deleteTask(task.id)"
       > &#x1F5D1;</span>
     </div>
   </div>
@@ -35,7 +35,8 @@ export default {
   },
   methods: {
     ...mapActions({
-      switchState: 'switchState'
+      switchState: 'switchState',
+      deleteTask: 'deleteTask'
     }),
   },
 }

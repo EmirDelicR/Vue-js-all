@@ -6,9 +6,12 @@ import data from '@/JSON/tasks.json'
 export default {
   state: {
     tasks: data,
-    task: {},
-    message: '',
     action: 'create',
+    task: {
+      name: '',
+      description: '',
+      completed: false,
+    },
   },
   mutations,
   getters,

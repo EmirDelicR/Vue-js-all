@@ -2,15 +2,25 @@
   <div class="add-task">
 
     <div class="form-header">
-      <h1>Create new task</h1>
+      <h1>Create new task </h1>
+      <button
+        class="button"
+        @click="clear"
+      >
+        New
+      </button>
     </div>
-    <form class="task-form">
+    <form
+      class="task-form"
+      @submit.prevent="(getAction == 'create') ? createTask(getTask) : updateTask($event, task.id)"
+    >
       <div class="field">
         <input
           type="text"
           name="name"
           placeholder="Name"
           required="true"
+          v-model="getTask.name"
         />
       </div>
       <div class="field">
@@ -19,6 +29,7 @@
           name="description"
           placeholder="Description"
           required="true"
+          v-model="getTask.description"
         />
       </div>
       <div class="field">
@@ -26,17 +37,31 @@
         <input
           type="checkbox"
           name="completed"
+          v-model="getTask.completed"
         />
       </div>
       <button class="button">
         Submit
       </button>
-      <button
-        class="button"
-        v-on:click="clear"
-      >
-        Clear
-      </button>
     </form>
   </div>
 </template>
+
+<script>
+import { mapActions, mapGetters } from 'vuex'
+export default {
+  methods: {
+    ...mapActions({
+      createTask: 'createTask',
+      updateTask: 'updateTask',
+      clear: 'clear'
+    }),
+  },
+  computed: {
+    ...mapGetters({
+      getAction: 'getAction',
+      getTask: 'getTask'
+    }),
+  },
+}
+</script>
