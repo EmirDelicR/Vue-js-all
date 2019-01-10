@@ -20,6 +20,21 @@
     li:last-child {
       margin-left: auto;
     }
+
+    button {
+      margin-left: auto;
+      padding: 5px 20px;
+      cursor: pointer;
+      color: $blue-jeans;
+      border: none;
+      background-color: $alice-blue;
+      font-size: $fs-nav;
+      height: 40px;
+      &:hover {
+        color: $sky-blue;
+        border-bottom: 2px solid $sky-blue;
+      }
+    }
   }
 
   /*

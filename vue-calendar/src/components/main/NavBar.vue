@@ -15,15 +15,31 @@
         to="/calendar"
       >Calendar</router-link>
       <router-link
+        v-if="!isAuthenticated"
         tag="li"
         to="/login"
       >Login</router-link>
+      <button
+        v-else
+        @click="logoutUser"
+      >Logout</button>
     </ul>
   </div>
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex'
 export default {
-  name: 'NavBar'
+  name: 'NavBar',
+  computed: {
+    ...mapGetters({
+      isAuthenticated: "isAuthenticated"
+    })
+  },
+  methods: {
+    ...mapActions({
+      logoutUser: 'logoutUser'
+    })
+  },
 }
 </script>

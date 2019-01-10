@@ -1,0 +1,46 @@
+.login-wrapp {
+  width: 40%;
+  margin: auto;
+  padding: 20px;
+  h1 {
+    color: $bdazzeld-blue;
+    padding: 10px;
+    margin: 0 0 0 0.5rem;
+    padding-top: 7px;
+    font-size: 28px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+  }
+  label {
+    display: block;
+    color: $blue-jeans;
+    padding: 10px 0;
+  }
+  input {
+    width: 100%;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  button {
+    width: 100%;
+    background-color: #4caf50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    &:hover {
+      background-color: #45a049;
+    }
+  }
+  p {
+    text-align: center;
+  }
+}

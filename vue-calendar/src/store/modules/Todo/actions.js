@@ -33,4 +33,8 @@ export default {
     commit('updateTask', task)
     commit('clear')
   },
+
+  printTasks({ state }) {
+    console.log(JSON.stringify(state.tasks, null, 2))
+  },
 }
