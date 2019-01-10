@@ -3,16 +3,10 @@
 
     <div class="form-header">
       <h1>Create new task </h1>
-      <button
-        class="button"
-        @click="clear"
-      >
-        New
-      </button>
     </div>
     <form
       class="task-form"
-      @submit.prevent="(getAction == 'create') ? createTask(getTask) : updateTask($event, task.id)"
+      @submit.prevent="(getAction == 'create') ? createTask(getTask) : updateTask(getTask)"
     >
       <div class="field">
         <input

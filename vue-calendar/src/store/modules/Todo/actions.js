@@ -23,4 +23,14 @@ export default {
     let index = state.tasks.findIndex(obj => obj.id == id)
     commit('removeTask', index)
   },
+
+  editTask({ commit, state }, id) {
+    let task = state.tasks.find(item => item.id === id)
+    commit('editTask', task)
+  },
+
+  updateTask({ commit, state }, task) {
+    commit('updateTask', task)
+    commit('clear')
+  },
 }

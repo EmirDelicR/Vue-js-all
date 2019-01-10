@@ -36,7 +36,8 @@ export default {
   methods: {
     ...mapActions({
       switchState: 'switchState',
-      deleteTask: 'deleteTask'
+      deleteTask: 'deleteTask',
+      editTask: 'editTask'
     }),
   },
 }

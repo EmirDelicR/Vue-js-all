@@ -8,6 +8,7 @@ export default {
     tasks: data,
     action: 'create',
     task: {
+      id: null,
       name: '',
       description: '',
       completed: false,
