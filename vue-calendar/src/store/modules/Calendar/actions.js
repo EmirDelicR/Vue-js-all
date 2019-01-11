@@ -52,7 +52,7 @@ export default {
   },
 
   printData({ state }) {
-    const data = localStorage.getItem('events')
+    const data = ls.getItem('events')
     console.log(data)
   },
 }
