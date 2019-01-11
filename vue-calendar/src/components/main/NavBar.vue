@@ -7,10 +7,12 @@
         exact
       >Home</router-link>
       <router-link
+        v-if="isAuthenticated"
         tag="li"
         to="/todo"
       >Todo</router-link>
       <router-link
+        v-if="isAuthenticated"
         tag="li"
         to="/calendar"
       >Calendar</router-link>
@@ -19,10 +21,12 @@
         tag="li"
         to="/login"
       >Login</router-link>
-      <button
+      <router-link
+        tag="li"
+        to="/login"
         v-else
-        @click="logoutUser"
-      >Logout</button>
+        @click.native="logoutUser"
+      >Logout</router-link>
     </ul>
   </div>
 </template>

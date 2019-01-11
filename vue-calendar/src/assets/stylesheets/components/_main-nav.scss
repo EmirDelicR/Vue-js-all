@@ -20,38 +20,5 @@
     li:last-child {
       margin-left: auto;
     }
-
-    button {
-      margin-left: auto;
-      padding: 5px 20px;
-      cursor: pointer;
-      color: $blue-jeans;
-      border: none;
-      background-color: $alice-blue;
-      font-size: $fs-nav;
-      height: 40px;
-      &:hover {
-        color: $sky-blue;
-        border-bottom: 2px solid $sky-blue;
-      }
-    }
   }
-
-  /*
-  span {
-    font-size: $fs-logo;
-    padding: 0 10px;
-    color: $blue-jeans;
-    border-bottom: 2px solid $blue-jeans;
-  }
-  a {
-    color: $winter-wizard;
-    font-size: $fs-small-headers;
-    padding: 16px;
-    text-decoration: none;
-    &:hover {
-      color: $blue-jeans;
-    }
-  }
-  */
 }
