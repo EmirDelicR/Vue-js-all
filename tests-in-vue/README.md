@@ -37,12 +37,12 @@ npm run test:unit FileName
 
 - test component html (see list.spec.js)
 
-* test component methods (See user.spec.js)
+- test component methods (See user.spec.js)
 
-* test router (Card.spec.js component)
+- test router (Card.spec.js component)
 
-* test store (actions getters mutations, Card.spec.js component)
+- test store (actions getters mutations, Card.spec.js component)
 
-* test utils functions
+- test utils functions
 
-* test async code
+- test async code

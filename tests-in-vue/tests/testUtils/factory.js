@@ -1,7 +1,7 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from "vue";
+import Vuex from "vuex";
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 export default (getters, actions) =>
   new Vuex.Store({
@@ -11,8 +11,8 @@ export default (getters, actions) =>
         actions,
         getters: {
           projectId: () => getters.Card.projectId || null,
-          currentTotal: () => getters.Card.currentTotal || null,
-        },
-      },
-    },
-  })
+          currentTotal: () => getters.Card.currentTotal || null
+        }
+      }
+    }
+  });
