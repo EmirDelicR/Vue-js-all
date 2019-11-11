@@ -41,10 +41,10 @@ npm run test:unit FileName
 
 - test component methods (See user.spec.js)
 
-- test router (Card.spec.js component)
-
 - test store (actions getters mutations, Card.spec.js component)
 
-- test utils functions
+- test router (Create new component / mock router / test router)
 
-- test async code
+- test utils functions ( create an utils function / test local storage / test other staff )
+
+- test async code ( test Promises/ axios / mock different urls)
