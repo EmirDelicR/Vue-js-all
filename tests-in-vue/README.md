@@ -35,6 +35,8 @@ npm run test:unit FileName
 
 [Jest-doc](https://jestjs.io/docs/en/using-matchers)
 
+[Testing Vuex](https://vuex.vuejs.org/guide/testing.html)
+
 - test component html (see list.spec.js)
 
 - test component methods (See user.spec.js)
