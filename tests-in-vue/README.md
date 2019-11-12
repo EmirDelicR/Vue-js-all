@@ -43,8 +43,8 @@ npm run test:unit FileName
 
 - test store (actions getters mutations, Card.spec.js component)
 
-- test router (Create new component / mock router / test router)
+- test router (Create new component / mock router / test router - need to fix tests, Router.spec.js)
 
-- test utils functions ( create an utils function / test local storage / test other staff )
+- test utils functions ( test local storage, LocalStorage.spec.js )
 
-- test async code ( test Promises/ axios / mock different urls)
+- test async code ( test Promises/ axios, Card.spec.js component )
