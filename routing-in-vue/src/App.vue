@@ -1,27 +1,50 @@
 <template>
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-        <h1>Routing</h1>
-        <!-- <app-header></app-header> -->
-        <router-view name="header-top"></router-view>
-        <transition name="slide" mode="out-in">
-          <router-view></router-view>
-        </transition>
-        <router-view name="header-bottom"></router-view>
-      </div>
+  <div id="app">
+    <div id="nav">
+      <router-link to="/">Home</router-link>|
+      <router-link to="/about">About</router-link>|
+      <br />
+      <br />
+      <router-link to="/user/1">User One</router-link>|
+      <router-link to="/user/2">User Two</router-link>
+      <br />
+      <br />
+      <router-link to="/settings">Settings</router-link>
+      <br />
+      <br />
+      <router-link to="/navigation">Navigation</router-link>|
     </div>
+    <router-view />
   </div>
 </template>
 <script>
-import Header from './components/Header';
 export default {
-  components: {
-    appHeader: Header
+  mounted() {
+    console.log("This is full router: ", this.$router);
+    console.log("This is current route: ", this.$route);
   }
-}
+};
 </script>
 
 <style>
-/* css form animation */
+#app {
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+
+#nav {
+  padding: 30px;
+}
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
+}
 </style>
