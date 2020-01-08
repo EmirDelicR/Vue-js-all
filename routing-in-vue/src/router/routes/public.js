@@ -35,6 +35,12 @@ const routes = [
           import(/* webpackChunkName: "post" */ '@/components/User/Post.vue')
       }
     ]
+  },
+  {
+    path: '/404',
+    alias: '*',
+    name: '404',
+    component: () => import(/* webpackChunkName: "404" */ '@/views/404.vue')
   }
 ];
 

@@ -5,6 +5,7 @@ import routes from '@/router/routes/index.js';
 Vue.use(VueRouter);
 
 const router = new VueRouter({
+  linkExactActiveClass: 'router-active',
   mode: 'history',
   routes,
   scrollBehavior(to, from, savedPosition) {

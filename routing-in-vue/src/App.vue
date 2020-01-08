@@ -2,7 +2,7 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link>|
-      <router-link to="/about">About</router-link>|
+      <router-link to="/about">About</router-link>
       <br />
       <br />
       <router-link to="/user/1">User One</router-link>|
@@ -12,7 +12,7 @@
       <router-link to="/settings">Settings</router-link>
       <br />
       <br />
-      <router-link to="/navigation">Navigation</router-link>|
+      <router-link to="/navigation">Navigation</router-link>
     </div>
     <router-view />
   </div>
@@ -44,7 +44,7 @@ export default {
   color: #2c3e50;
 }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+#nav a.router-active {
+  color: #428db9;
 }
 </style>
